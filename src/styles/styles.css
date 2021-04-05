@@ -170,3 +170,59 @@ nav a:hover::before {
     transform: translateY(-10px);
   }
 }
+
+/*--------------------------------------------------------------
+# County details page
+--------------------------------------------------------------*/
+#county-details {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+#county-details::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 100%;
+  height: 30%;
+  background: url("../../assets/images/banner.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#county-details h1 {
+  position: relative;
+  color: #2c4964;
+  font-size: 54px;
+  font-weight: 600;
+  padding-top: 80px;
+}
+
+#county-details h1::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  bottom: -20px;
+  background-color: #0066ff;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#county-details .map-wrapper {
+  position: relative;
+  display: block;
+  width: max-content;
+  margin: auto;
+}
+
+#county-details .map a:hover {
+  cursor: pointer;
+}
+
+#county-details .map-wrapper {
+  padding-top: 20px;
+}
