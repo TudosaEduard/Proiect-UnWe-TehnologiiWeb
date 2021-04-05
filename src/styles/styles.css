@@ -65,6 +65,10 @@ nav a {
   text-decoration: none;
 }
 
+nav a:hover {
+  color: #fafafa;
+}
+
 nav a::before {
   content: "";
   position: absolute;
@@ -73,8 +77,13 @@ nav a::before {
   bottom: -5px;
   left: 0;
   background-color: #fff;
-  visibility: visible;
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
   transition: all 0.3s ease-in-out 0s;
+}
+
+nav a:hover::before {
+  transform: scale(1, 1);
 }
 
 /*--------------------------------------------------------------
@@ -115,6 +124,7 @@ nav a::before {
 
 #hero .hero-img {
   width: 100%;
+  animation: up-down 2s 2s ease-in-out infinite alternate-reverse both;
 }
 
 #hero h1 {
@@ -134,4 +144,29 @@ nav a::before {
   padding: 15px 88px;
   border-radius: 10px;
   margin-top: 32px;
+  transition-duration: 0.5s;
+}
+
+#hero button:hover {
+  color: rgb(0, 102, 255);
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
