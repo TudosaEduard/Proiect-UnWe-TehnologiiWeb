@@ -21,11 +21,36 @@ header .header-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: space-around !important;
+  transition: 0.5s;
 }
 
 header .logo img {
   max-height: 120px;
 }
+
+header .active{
+  background-color: teal;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 952px){
+  header .logo img{
+    max-height: 90px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  header .logo img{
+    max-height: 70px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  header .logo img{
+    max-height: 25px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Navbar
@@ -85,6 +110,87 @@ nav a::before {
 nav a:hover::before {
   transform: scale(1, 1);
 }
+
+nav.active{
+  background-color: teal;
+}
+
+@media screen and (max-width: 952px){
+  nav a {
+    font-size: 25px;
+  }
+
+  nav ul li {
+    padding: 30px 0 30px 50px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  nav a {
+    font-size: 16px;
+  }
+
+  nav ul li {
+    padding: 30px 0 30px 30px;
+  }
+}
+
+/****** Mobile ******/
+
+nav .mobile-nav-toggle{
+  display: none;
+}
+
+@media screen and (max-width: 550px){
+  .nav-mobile{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(28, 47, 65, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav .mobile-nav-toggle{
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    display: block;
+    line-height: 0;
+    transition: 0.5s;
+  }
+
+  .nav-mobile .mobile-nav-toggle{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+  .nav-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: rgb(0, 102, 255);
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+  .nav-mobile a{
+    color: white;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Hero
