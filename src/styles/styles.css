@@ -18,49 +18,46 @@ header {
 }
 
 header .header-wrapper {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-around !important;
   transition: 0.5s;
+}
+
+header .logo {
+  margin-left: 32px;
 }
 
 header .logo img {
-  max-height: 120px;
+  max-height: 80px;
 }
 
-header .active{
-  background-color: teal;
+header .active {
+  background-color: #0066ff;
   transition: 0.5s;
 }
 
-@media screen and (max-width: 952px){
-  header .logo img{
-    max-height: 90px;
+@media screen and (max-width: 952px) {
+  header .logo img {
+    margin-top: 16px;
+    max-height: 60px;
   }
 }
 
-@media screen and (max-width: 768px){
-  header .logo img{
-    max-height: 70px;
-  }
-}
-
-@media screen and (max-width: 360px){
-  header .logo img{
+@media screen and (max-width: 360px) {
+  header .logo img {
     max-height: 25px;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Navbar
 --------------------------------------------------------------*/
 nav {
   position: relative;
+  float: right;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  margin-right: 160px;
 }
 
 nav ul {
@@ -111,11 +108,32 @@ nav a:hover::before {
   transform: scale(1, 1);
 }
 
-nav.active{
-  background-color: teal;
+nav .mobile-nav-toggle {
+  display: none;
 }
 
-@media screen and (max-width: 952px){
+nav i {
+  margin-top: 48px;
+  margin-right: 36px;
+}
+
+/****** Mobile ******/
+
+@media screen and (max-width: 1200px) {
+  nav a {
+    font-size: 25px;
+  }
+
+  nav {
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 952px) {
+  nav {
+    margin-right: 80px;
+  }
+
   nav a {
     font-size: 25px;
   }
@@ -125,24 +143,26 @@ nav.active{
   }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 800px) {
+  nav {
+    margin-right: 40px;
+  }
+
   nav a {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   nav ul li {
-    padding: 30px 0 30px 30px;
+    padding: 30px 0 30px 50px;
   }
 }
 
-/****** Mobile ******/
+@media screen and (max-width: 680px) {
+  nav {
+    margin-right: 0px;
+  }
 
-nav .mobile-nav-toggle{
-  display: none;
-}
-
-@media screen and (max-width: 550px){
-  .nav-mobile{
+  .nav-mobile {
     position: fixed;
     overflow: hidden;
     top: 0;
@@ -159,7 +179,7 @@ nav .mobile-nav-toggle{
     display: none;
   }
 
-  nav .mobile-nav-toggle{
+  nav .mobile-nav-toggle {
     color: #fff;
     font-size: 35px;
     cursor: pointer;
@@ -168,14 +188,14 @@ nav .mobile-nav-toggle{
     transition: 0.5s;
   }
 
-  .nav-mobile .mobile-nav-toggle{
+  .nav-mobile .mobile-nav-toggle {
     position: absolute;
     top: 15px;
     right: 15px;
-}
+  }
 
   .nav-mobile ul {
-    display: block;
+    display: inline;
     position: absolute;
     top: 55px;
     right: 15px;
@@ -186,11 +206,15 @@ nav .mobile-nav-toggle{
     overflow-y: auto;
     transition: 0.3s;
   }
-  .nav-mobile a{
+
+  .nav-mobile ul li {
+    display: table;
+  }
+
+  .nav-mobile a {
     color: white;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Hero
