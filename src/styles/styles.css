@@ -30,7 +30,7 @@ header .logo img {
 }
 
 header .active {
-  background-color: #0066ff;
+  background-color: rgba(0, 102, 255, 0.9);
   transition: 0.5s;
 }
 
@@ -247,10 +247,12 @@ nav i {
   left: 10%;
 }
 
+/*
 #hero .column {
   float: left;
   width: 50%;
 }
+*/
 
 #hero .hero-img {
   width: 100%;
@@ -301,6 +303,102 @@ nav i {
   }
 }
 
+
+
+/*------------------------------------
+Responsive -> adaptation to devices
+*/
+
+@media (max-width: 992px) {
+  #hero .hero-img {
+    width: 100%;
+  } 
+  #hero h1 {
+    font-size: 48px;
+    }
+    #hero p {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    }
+  
+    #hero button {
+    color: #fafafa;
+    background-color: transparent;
+    border: 2px solid #fafafa;
+    font-size: 16px;
+    padding: 10px 60px;
+    border-radius: 7.5px;
+    margin-top: 23px;
+    transition-duration: 0.5s;  
+    } 
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 48px;
+  }
+  #hero p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  #hero button {
+    color: #fafafa;
+    background-color: transparent;
+    border: 2px solid #fafafa;
+    font-size: 10px;
+    padding: 10px 60px;
+    border-radius: 7.5px;
+    margin-top: 23px;
+    transition-duration: 0.5s;  
+  } 
+}
+
+@media (max-width: 576px) {
+
+  #hero {
+    background: none;
+    background: linear-gradient(0, 102, 255, 100);
+    background-color: #0066ff;
+  }
+
+  #hero::before {
+    display : none;
+  }
+
+  #hero .column {
+    width: 70%;
+    margin: auto;
+  }
+
+  #hero .hero-wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #hero .hero-img {
+    width: 85%;  
+  }
+
+  #hero h1 {
+    font-size: 30px;
+  }
+  #hero p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  #hero button {
+    color: #fafafa;
+    background-color: transparent;
+    border: 2px solid #fafafa;
+    font-size: 7.5px;
+    padding: 7.5px 45px;
+    border-radius: 5px;
+    margin-top: 16px;
+    transition-duration: 0.5s;    
+  } 
+}
 /*--------------------------------------------------------------
 # County details page
 --------------------------------------------------------------*/
@@ -328,7 +426,7 @@ nav i {
   color: #2c4964;
   font-size: 54px;
   font-weight: 600;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 #county-details h1::before {
@@ -354,7 +452,82 @@ nav i {
 }
 
 #county-details .map-wrapper {
-  padding-top: 20px;
+  padding-top: 0px;
+}
+
+#county-details .map-wrapper .map-sm {
+  display: none;
+}
+
+#county-details button {
+  font-weight: 700;
+  position: absolute;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 20px;
+  padding: 12px 54px;
+  border-radius: 10px;
+  margin-top: 32px;
+  transition-duration: 0.5s;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/****** Mobile ******/
+
+@media screen and (max-width: 1000px) {
+  #county-details .map-wrapper .map-bg {
+    display: none;
+  }
+
+  #county-details .map-wrapper .map-sm {
+    display: block;
+  }
+
+  #county-details::before {
+    top: 40%;
+  }
+
+  #county-details .map-wrapper {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #county-details h1 {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  #county-details::before {
+    background: linear-gradient(#1374fc, #0a3a7e);
+    top: 50%;
+    height: 50vh;
+  }
+
+  #county-details button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #county-details h1 {
+    padding-top: 140px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #county-details h1 {
+    padding-top: 160px;
+    font-size: 32px;
+  }
 }
 
 /*--------------------------------------------------------------
