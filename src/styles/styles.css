@@ -247,10 +247,12 @@ nav i {
   left: 10%;
 }
 
+/*
 #hero .column {
   float: left;
   width: 50%;
 }
+*/
 
 #hero .hero-img {
   width: 100%;
@@ -353,9 +355,31 @@ Responsive -> adaptation to devices
 }
 
 @media (max-width: 576px) {
-  #hero .hero-img {
-    width: 100%;
+
+  #hero {
+    background: none;
+    background: linear-gradient(0, 102, 255, 100);
+    background-color: #0066ff;
   }
+
+  #hero::before {
+    display : none;
+  }
+
+  #hero .column {
+    width: 70%;
+    margin: auto;
+  }
+
+  #hero .hero-wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #hero .hero-img {
+    width: 85%;  
+  }
+
   #hero h1 {
     font-size: 30px;
   }
