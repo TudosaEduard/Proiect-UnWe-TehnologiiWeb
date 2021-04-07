@@ -356,3 +356,191 @@ nav i {
 #county-details .map-wrapper {
   padding-top: 20px;
 }
+
+/*--------------------------------------------------------------
+# Select compare statistics page
+--------------------------------------------------------------*/
+
+#statistic-compare {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  top: 200px;
+  background-color: #fafafa;
+  border-top: 10px solid rgb(0, 102, 255);
+  border-bottom: 10px solid rgb(0, 102, 255);
+  padding: 20px;
+}
+
+#statistic-compare h1 {
+  position: relative;
+  color: #2c4964;
+  font-size: 54px;
+  font-weight: 600;
+  padding-top: 30px;
+}
+
+#statistic-compare h1::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  bottom: -20px;
+  background-color: #0066ff;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#statistic-compare .add-text{
+  position: relative;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-style: italic;
+  color: rgb(134, 120, 120);
+  top: 40px;
+  border: 3px solid #0066ff;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  transition: 0.5;
+}
+
+#statistic-compare .add-text:focus{
+  border-color: #032f72;
+  box-shadow: 0 0 8px 0 #032f72;
+  color: #0066ff;
+}
+
+/****** Add button ******/
+
+#statistic-compare .btn-icon-add{
+  position: relative;
+  top: 30px;
+  left: 20px;
+  display: inline-block;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  line-height: 30px;
+  font-size: 23px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  transition: .3s;
+  color: #fafafa;
+  background-color: #032f72;
+}
+
+#statistic-compare .btn-icon-add .fa:active{
+  line-height: 50px;
+}
+
+#statistic-compare .btn-icon-add:hover {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.28);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+  color: #0066ff;
+  border-color: #0066ff;
+  background-color: #fafafa;
+}
+
+/****** Remove button ******/
+
+#statistic-compare .btn-icon-remove{
+  position: relative;
+  top: 30px;
+  left: 30px;
+  display: inline-block;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  line-height: 30px;
+  font-size: 23px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  transition: .3s;
+  color: #fafafa;
+  background-color: #032f72;
+}
+
+#statistic-compare .btn-icon-remove .fa:active{
+  line-height: 50px;
+}
+
+#statistic-compare .btn-icon-remove:hover {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.28);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+  color: #0066ff;
+  border-color: #0066ff;
+  background-color: #fafafa;
+}
+
+/****** Add/Remove Items ******/
+
+#statistic-compare ul{
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  
+}
+#statistic-compare li{
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  left: 350px;
+  font-style: italic;
+  color: #032f72;
+  top: 30px;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  width: 30%;
+  box-sizing: border-box;
+  border: 3px solid #0066ff;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  
+}
+
+/****** Go to diagram ******/
+
+#statistic-compare .btn{
+  position: relative;
+  color: #0066ff;
+  background-color: transparent;
+  border: 3px solid #0066ff;
+  font-size: 24px;
+  top: 50px;
+  padding: 15px 88px;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+#statistic-compare .btn:hover {
+  background-color: rgb(0, 102, 255);
+  color: #fafafa;
+  cursor: pointer;
+}
