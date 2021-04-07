@@ -30,7 +30,7 @@ header .logo img {
 }
 
 header .active {
-  background-color: #0066ff;
+  background-color: rgba(0, 102, 255, 0.9);
   transition: 0.5s;
 }
 
@@ -426,7 +426,7 @@ Responsive -> adaptation to devices
   color: #2c4964;
   font-size: 54px;
   font-weight: 600;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 #county-details h1::before {
@@ -452,5 +452,80 @@ Responsive -> adaptation to devices
 }
 
 #county-details .map-wrapper {
-  padding-top: 20px;
+  padding-top: 0px;
+}
+
+#county-details .map-wrapper .map-sm {
+  display: none;
+}
+
+#county-details button {
+  font-weight: 700;
+  position: absolute;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 20px;
+  padding: 12px 54px;
+  border-radius: 10px;
+  margin-top: 32px;
+  transition-duration: 0.5s;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/****** Mobile ******/
+
+@media screen and (max-width: 1000px) {
+  #county-details .map-wrapper .map-bg {
+    display: none;
+  }
+
+  #county-details .map-wrapper .map-sm {
+    display: block;
+  }
+
+  #county-details::before {
+    top: 40%;
+  }
+
+  #county-details .map-wrapper {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #county-details h1 {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  #county-details::before {
+    background: linear-gradient(#1374fc, #0a3a7e);
+    top: 50%;
+    height: 50vh;
+  }
+
+  #county-details button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #county-details h1 {
+    padding-top: 140px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #county-details h1 {
+    padding-top: 160px;
+    font-size: 32px;
+  }
 }
