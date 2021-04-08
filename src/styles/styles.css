@@ -351,6 +351,7 @@ nav i {
 
 #county-details .map a:hover {
   cursor: pointer;
+  fill: #0066ff;
 }
 
 #county-details .map-wrapper {
@@ -376,6 +377,22 @@ nav i {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+}
+
+#county-details .info-box {
+  border-radius: 7px;
+  visibility: hidden;
+  position: absolute;
+  background-color: #e0e0e0;
+  width: 160px;
+  height: 64px;
+}
+
+#county-details .info-box h2 {
+  color: #3366ff;
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 /****** Mobile ******/
