@@ -467,18 +467,18 @@
     </section>
 
     <section id="diagram-statistics">
-        <div class="upper-container">
-            <button class="upper-button" id="choose">Alege Statistica</button>
-            <button class="upper-button" id="time">Alege intervalul de timp</button>
-            <button class="upper-button" id="type">Tipul graficului</button>
+        <div class="chart">
+            <div class="chart-menu">
+                <button id="choose-statistic">Alege Statistica</button>
+                <button id="choose-time">Alege intervalul de timp</button>
+                <button id="choose-chart-ype">Tipul graficului</button>
+            </div>
+            
+            <div class="chart-canvas" id="chart"></div>
         </div>
-        
-        <div class="box" id="box"></div>
 
-        <div class="lower-container">
-            <button class="lower-button-download">Descarca grafic</button>
-            <button class="lower-button-data">Descarca datele</button>
-        </div>
+        <button id="download-data" class="download-button">Descarca grafic</button>
+        <button id="download-chart" class="download-button">Descarca datele</button>
     </section>
 
     <script src="src/script/counties.js"></script>
