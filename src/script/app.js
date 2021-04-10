@@ -1,4 +1,4 @@
-import {countyContainer} from './counties.js'
+//import {countyContainer} from './counties.js'
 
 /* Navbar when scrolling */
 window.onscroll = function(){
