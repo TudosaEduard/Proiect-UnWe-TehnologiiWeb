@@ -31,24 +31,28 @@ navBtn.addEventListener('click', () => {
 })
 
 /* Navbar animation when scrolling */
-const getSections = () => {
-    const sections = document.querySelectorAll("section");
-    let sectionsArray = [];
-    offset = 0;
-    sections.forEach(section => {
-        sectionsArray.push({
-            id: section.id,
-            start: offset,
-            end: offset + section.offsetHeight
-        });
-        offset += section.offsetHeight;
-    })
-    return sectionsArray;
+const sections = document.querySelectorAll("section");
+const options = {
+    threshold: 0.7
 }
 
-let sections = getSections();
-document.addEventListener("scroll", () => {
-    console.log(window.scrollY);
+const navAnimate = (entries) => {
+    entries.forEach(entry => {
+        const id = entry.target.id;
+        const activeAnchor = document.querySelector(`[data-page=${id}]`);
+        if(entry.isIntersecting) {
+            activeAnchor.classList.add('active-nav-elem');
+        }
+        if(!entry.isIntersecting) {
+            activeAnchor.classList.remove('active-nav-elem');
+        }
+    })
+}
+
+let observer = new IntersectionObserver(navAnimate, options);
+
+sections.forEach(section => {
+    observer.observe(section);
 })
 
 

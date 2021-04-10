@@ -112,12 +112,11 @@ nav a:hover::before {
   transform: scale(1, 1);
 }
 
-nav .active::before {
-  visibility: visible;
-  width: 100%;
+nav .active-nav-elem::before {
+  transform: scale(1, 1);
 }
 
-nav .active {
+nav .active-nav-elem {
   color: #fff;
 }
 
@@ -522,7 +521,7 @@ Responsive -> adaptation to devices
   color: #2c4964;
   font-size: 54px;
   font-weight: 600;
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 #county-details h1::before {
@@ -613,7 +612,7 @@ Responsive -> adaptation to devices
   }
 
   #county-details h1 {
-    padding-top: 100px;
+    padding-top: 40px;
   }
 }
 
@@ -653,7 +652,6 @@ Responsive -> adaptation to devices
   width: 100%;
   height: 100vh;
   text-align: center;
-  top: 200px;
   background-color: #f2f2f2;
 }
 
