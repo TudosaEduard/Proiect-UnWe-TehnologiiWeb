@@ -37,7 +37,11 @@
                     Vezi statisticile șomajului din anul <br>
                     2020-2021
                 </p>
-                <button class="anim" data-animtype="from-bottom" data-animdelay="0.4s"> Începe </button>
+                <button onclick="window.location.href='#county-details'"
+                        class="anim" data-animtype="from-bottom" 
+                        data-animdelay="0.4s"> 
+                    Începe 
+                </button>
             </div>
             <div class = "column">
                 <img src="assets/images/hero-image.png" class="hero-img">
@@ -452,8 +456,8 @@
     </section>
 
     <section id="statistic-compare">
-        <h1>Compară statisticile</h1>
-        <div class="choose-county">
+        <h1 class="anim" data-animtype="from-top" data-animdelay="0s">Compară statisticile</h1>
+        <div class="choose-county anim" data-animtype="from-bottom" data-animdelay="0s">
             <div class="input-group">
                 <div class="input-wrapper">
                     <input type="text" placeholder="Adaugă județ (maxim 5)" class="add-text" id="candidate">
