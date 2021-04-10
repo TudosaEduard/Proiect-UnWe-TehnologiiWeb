@@ -29,3 +29,26 @@ navBtn.addEventListener('click', () => {
 
     }
 })
+
+/* Navbar animation when scrolling */
+const getSections = () => {
+    const sections = document.querySelectorAll("section");
+    let sectionsArray = [];
+    offset = 0;
+    sections.forEach(section => {
+        sectionsArray.push({
+            id: section.id,
+            start: offset,
+            end: offset + section.offsetHeight
+        });
+        offset += section.offsetHeight;
+    })
+    return sectionsArray;
+}
+
+let sections = getSections();
+document.addEventListener("scroll", () => {
+    console.log(window.scrollY);
+})
+
+

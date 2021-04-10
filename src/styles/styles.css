@@ -112,6 +112,15 @@ nav a:hover::before {
   transform: scale(1, 1);
 }
 
+nav .active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+nav .active {
+  color: #fff;
+}
+
 nav .mobile-nav-toggle {
   display: none;
 }
