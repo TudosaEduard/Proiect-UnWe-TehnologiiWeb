@@ -36,13 +36,11 @@ navBtn.addEventListener('click', () => {
 const mapBig = document.querySelector('.map-bg .map');
 mapBig.addEventListener('click', (e) => {
     let selectedCounty = e.target;
-    console.log(selectedCounty.getAttribute("name"));
 })
 
 const mapSmall = document.querySelector('#surface1');
 mapSmall.addEventListener('click', (e) => {
     let selectedCounty = e.target.parentNode;
-    console.log(selectedCounty.getAttribute("name"));
 })
 
 /* Display info when hovering on a county*/
@@ -56,15 +54,11 @@ document.querySelector("#county-details").addEventListener('mousemove', (e) => {
 })
 
 const setInfoBoxInfo = (countyName, countyTotalUnemployedNumber) => {
-    console.log(countyName)
     let countyNameInfo = document.querySelector("#info-box-county-name");
     let countyTotalUnemployedNumberInfo = document.querySelector("#info-box-county-unemployed-number");
 
     countyNameInfo.innerHTML = countyName;
     countyTotalUnemployedNumberInfo.innerHTML = countyTotalUnemployedNumber;
-
-    console.log(countyNameInfo);
-    console.log(countyTotalUnemployedNumberInfo);
 }
 
 document.querySelectorAll("#county-details .map-bg .map a").forEach(elem => {
