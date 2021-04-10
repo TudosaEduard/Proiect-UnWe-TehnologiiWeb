@@ -1,6 +1,10 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0px;
@@ -686,7 +690,6 @@ Responsive -> adaptation to devices
   padding: 16px;
   box-sizing: border-box;
   transition: 0.5;
-  z-index: 3;
 }
 
 #statistic-compare .add-text:focus {
