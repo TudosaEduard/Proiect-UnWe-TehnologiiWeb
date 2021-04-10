@@ -1,4 +1,4 @@
-export const countyContainer = [
+const countyContainer = [
 "Dolj",
 "Gorj",
 "Mehedinți",

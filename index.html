@@ -450,6 +450,24 @@
         </div>
         <button>Alege județ</button>
     </section>
-    <script type="module" src="src/script/app.js"> </script>
+
+    <section id="statistic-compare">
+        <h1>Compară statisticile</h1>
+        <div class="choose-county">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Adaugă județ (maxim 5)" class="add-text" id="candidate">
+                </div>
+                <button onclick="addItem()" class="btn-icon-add"><i class="plus"></i></button>
+                <div class="autocom-box"></div>
+            </div>
+            <ul id="dynamic-list" class="list"></ul>
+        </div>
+        <button class="show-btn">Afișează</button>
+    </section>
+
+    <script src="src/script/counties.js"></script>
+    <script src="src/script/county-list-selector.js"></script> 
+    <script src="src/script/app.js"></script>   
 </body>
 </html>
