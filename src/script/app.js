@@ -21,7 +21,7 @@ navBtn.addEventListener('click', () => {
         navBtn.classList.remove("fa-bars");
         navBtn.classList.add("fa-window-close");
 
-    } else if (navBtn.classList.contains('fa-window-close')) {
+    } else {
 
         nav.classList.remove('nav-mobile');
         navBtn.classList.remove("fa-window-close");
@@ -33,7 +33,7 @@ navBtn.addEventListener('click', () => {
 /* Navbar animation when scrolling */
 const sections = document.querySelectorAll("section");
 const options = {
-    threshold: 0.7
+    threshold: 0.85
 }
 
 const navAnimate = (entries) => {
