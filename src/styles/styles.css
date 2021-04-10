@@ -1,9 +1,75 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0px;
+}
+
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+.anim {
+  opacity: 0;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes from-left {
+  from {
+    transform: translate(-50%, 0%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes from-right {
+  from {
+    transform: translate(50%, 0%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes from-bottom {
+  from {
+    transform: translate(0%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes from-top {
+  from {
+    transform: translate(0%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -106,6 +172,14 @@ nav a::before {
 
 nav a:hover::before {
   transform: scale(1, 1);
+}
+
+nav .active-nav-elem::before {
+  transform: scale(1, 1);
+}
+
+nav .active-nav-elem {
+  color: #fff;
 }
 
 nav .mobile-nav-toggle {
@@ -509,7 +583,7 @@ Responsive -> adaptation to devices
   color: #2c4964;
   font-size: 54px;
   font-weight: 600;
-  padding-top: 0;
+  padding-top: 0px;
 }
 
 #county-details h1::before {
@@ -600,7 +674,7 @@ Responsive -> adaptation to devices
   }
 
   #county-details h1 {
-    padding-top: 100px;
+    padding-top: 40px;
   }
 }
 
@@ -686,7 +760,6 @@ Responsive -> adaptation to devices
   padding: 16px;
   box-sizing: border-box;
   transition: 0.5;
-  z-index: 3;
 }
 
 #statistic-compare .add-text:focus {
