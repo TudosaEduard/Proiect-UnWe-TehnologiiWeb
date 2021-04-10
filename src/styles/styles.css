@@ -541,9 +541,7 @@ Responsive -> adaptation to devices
   height: 100vh;
   text-align: center;
   top: 200px;
-  background-color: #fafafa;
-  border-top: 10px solid rgb(0, 102, 255);
-  border-bottom: 10px solid rgb(0, 102, 255);
+  background-color: #F2F2F2;
   padding: 20px;
 }
 
@@ -566,6 +564,11 @@ Responsive -> adaptation to devices
   transform: translate(-50%, 0%);
 }
 
+#statictic-compare .input-group{
+  position: relative;
+  display: inline-block;
+}
+
 #statistic-compare .add-text{
   position: relative;
   align-items: center;
@@ -575,18 +578,60 @@ Responsive -> adaptation to devices
   color: rgb(134, 120, 120);
   top: 40px;
   border: 3px solid #0066ff;
-  border-radius: 10px;
   outline: none;
   padding: 10px;
   width: 50%;
   box-sizing: border-box;
   transition: 0.5;
+  z-index: 3;
 }
 
 #statistic-compare .add-text:focus{
   border-color: #032f72;
   box-shadow: 0 0 8px 0 #032f72;
   color: #0066ff;
+}
+
+/****** Autocomplete ******/
+
+#statistic-compare .input-group .autocom-box{
+  position: relative;
+  padding: 0px;
+  max-height: 350px;
+  overflow-y: auto;
+  background-color: #fafafa;
+  width: 48.55%;
+  top: 33px;
+  border: 3px solid #0066ff;
+  left: 343px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+#statistic-compare .autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  cursor: default;
+  border-radius: 3px;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+#statistic-compare .input-group.active .autocom-box{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#statistic-compare .input-group.active .autocom-box li{
+  display: block;
+  cursor: pointer;
+}
+
+#statistic-compare .autocom-box li:hover{
+  background-color: #efefef;
+  border-radius: 3px;
 }
 
 /****** Add button ******/
@@ -597,24 +642,20 @@ Responsive -> adaptation to devices
   left: 20px;
   display: inline-block;
   text-decoration: none;
-  width: 40px;
-  height: 40px;
-  line-height: 30px;
-  font-size: 23px;
+  width:50px;
+  height:50px;
   border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  font-weight: bold;
+  cursor: pointer;
+  background:
+    linear-gradient(#fff,#fff),
+    linear-gradient(#fff,#fff),
+    #032f72;
+  background-position:center;
+  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
   transition: .3s;
-  color: #fafafa;
-  background-color: #032f72;
-}
-
-#statistic-compare .btn-icon-add .fa:active{
-  line-height: 50px;
 }
 
 #statistic-compare .btn-icon-add:hover {
@@ -622,37 +663,37 @@ Responsive -> adaptation to devices
   -webkit-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   transform: translateY(-5px);
-  color: #0066ff;
-  border-color: #0066ff;
-  background-color: #fafafa;
+  background:
+    linear-gradient(#1374fc,#1374fc),
+    linear-gradient(#1374fc,#1374fc),
+    #fafafa;
+  background-position:center;
+  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+  cursor: pointer;
 }
 
 /****** Remove button ******/
 
 #statistic-compare .btn-icon-remove{
   position: relative;
-  top: 30px;
-  left: 30px;
-  display: inline-block;
+  left: 20px;
   text-decoration: none;
-  width: 40px;
-  height: 40px;
-  line-height: 30px;
-  font-size: 23px;
+  width:30px;
+  height:30px;
   border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  font-weight: bold;
+  cursor: pointer;
+  transform: rotate(45deg);
+  background:
+    linear-gradient(#fff,#fff),
+    linear-gradient(#fff,#fff),
+    #032f72;
+  background-position:center;
+  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
   transition: .3s;
-  color: #fafafa;
-  background-color: #032f72;
-}
-
-#statistic-compare .btn-icon-remove .fa:active{
-  line-height: 50px;
 }
 
 #statistic-compare .btn-icon-remove:hover {
@@ -660,55 +701,56 @@ Responsive -> adaptation to devices
   -webkit-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   transform: translateY(-5px);
-  color: #0066ff;
-  border-color: #0066ff;
-  background-color: #fafafa;
+  background:
+    linear-gradient(#1374fc,#1374fc),
+    linear-gradient(#1374fc,#1374fc),
+    #fafafa;
+  background-position:center;
+  transform: rotate(45deg);
+  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat:no-repeat;
+  cursor: pointer;
 }
 
 /****** Add/Remove Items ******/
 
-#statistic-compare ul{
+#statistic-compare .list{
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
   padding-left: 0;
-  margin-bottom: 0;
-  
+  margin-bottom: 0px;
 }
-#statistic-compare li{
+
+#statistic-compare .list li{
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content:flex-start;
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  left: 350px;
+  font-size: 28px;
   font-style: italic;
   color: #032f72;
-  top: 30px;
-  border-radius: 10px;
-  outline: none;
-  padding: 10px;
+  top: 35px;
+  left: 600px;
+  padding: 10px 20px;
   width: 30%;
-  box-sizing: border-box;
-  border: 3px solid #0066ff;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
   font-weight: bold;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  
 }
 
 /****** Go to diagram ******/
 
 #statistic-compare .btn{
-  position: relative;
+  position: absolute;
   color: #0066ff;
   background-color: transparent;
   border: 3px solid #0066ff;
   font-size: 24px;
-  top: 50px;
+  top: 90%;
+  left: 40%;
+  align-items: center;
   padding: 15px 88px;
-  border-radius: 10px;
+  border-radius: 40px;
   transition-duration: 0.5s;
 }
 

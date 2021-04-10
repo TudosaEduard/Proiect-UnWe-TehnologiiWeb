@@ -23,7 +23,6 @@
                 </ul>
                 <i class="fa fa-bars mobile-nav-toggle"></i>
             </nav>
-            <script src="src/script/app.js"> </script>
         </div>
     </header>
 
@@ -451,16 +450,17 @@
         <button>Alege județ</button>
     </section>
 
-    <section id="statistic-compare">
+    <section id="statistic-compare" class="wrapper">
         <h1>Compară statisticile</h1>
-        <div class="input-group">
-            <input type="text" placeholder="Adaugă județ (maxim 5)" class="add-text" id="candidate">
-
-            <button onclick="addItem()" class="btn-icon-add"><i class="fa fa-plus"></i></button>
-            <button onclick="removeItem()" class="btn-icon-remove"><i class="fa fa-close"></i></button>
-        </div>
-        <ul id="dynamic-list"></ul>
+            <div class="input-group">
+                <input type="text" placeholder="Adaugă județ (maxim 5)" class="add-text" id="candidate">
+                <button onclick="addItem()" class="btn-icon-add"><i class="plus"></i></button>
+                <div class="autocom-box"></div>
+            </div>
+        <ul id="dynamic-list" class="list"></ul>
         <button class="btn">Afișează</button>
     </section>
+
+    <script src="src/script/app.js"> </script>   
 </body>
 </html>
