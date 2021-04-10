@@ -630,8 +630,7 @@ Responsive -> adaptation to devices
   height: 100vh;
   text-align: center;
   top: 200px;
-  background-color: #F2F2F2;
-  padding: 20px;
+  background-color: #f2f2f2;
 }
 
 #statistic-compare h1 {
@@ -653,29 +652,33 @@ Responsive -> adaptation to devices
   transform: translate(-50%, 0%);
 }
 
-#statictic-compare .input-group{
+#statistic-compare .input-group {
   position: relative;
   display: inline-block;
 }
 
-#statistic-compare .add-text{
+#statistic-compare .input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#statistic-compare .add-text {
+  width: 500px;
   position: relative;
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-size: 32px;
   font-style: italic;
   color: rgb(134, 120, 120);
-  top: 40px;
   border: 3px solid #0066ff;
   outline: none;
   padding: 10px;
-  width: 50%;
   box-sizing: border-box;
   transition: 0.5;
   z-index: 3;
 }
 
-#statistic-compare .add-text:focus{
+#statistic-compare .add-text:focus {
   border-color: #032f72;
   box-shadow: 0 0 8px 0 #032f72;
   color: #0066ff;
@@ -683,21 +686,23 @@ Responsive -> adaptation to devices
 
 /****** Autocomplete ******/
 
-#statistic-compare .input-group .autocom-box{
-  position: relative;
+#statistic-compare .input-group .autocom-box {
+  position: absolute;
   padding: 0px;
   max-height: 350px;
   overflow-y: auto;
   background-color: #fafafa;
-  width: 48.52%;
-  top: 33px;
-  border: 3px solid #0066ff;
-  left: 353px;
+  width: 100%;
+  border-style: hidden solid solid solid;
+  border-color: #032f72;
+  border-width: 3px;
+  box-sizing: border-box;
   pointer-events: none;
   opacity: 0;
+  z-index: 1;
 }
 
-#statistic-compare .autocom-box li{
+#statistic-compare .autocom-box li {
   list-style: none;
   padding: 8px 12px;
   cursor: default;
@@ -707,82 +712,76 @@ Responsive -> adaptation to devices
   display: none;
 }
 
-#statistic-compare .input-group.active .autocom-box{
-  padding: 10px 8px;
+#statistic-compare .input-group.active .autocom-box {
   opacity: 1;
   pointer-events: auto;
 }
 
-#statistic-compare .input-group.active .autocom-box li{
+#statistic-compare .input-group.active .autocom-box li {
   display: block;
   cursor: pointer;
 }
 
-#statistic-compare .autocom-box li:hover{
+#statistic-compare .autocom-box li:hover {
   background-color: #efefef;
   border-radius: 3px;
 }
 
 /****** Add button ******/
 
-#statistic-compare .btn-icon-add{
-  position: relative;
-  top: 30px;
-  left: 20px;
+#statistic-compare .btn-icon-add {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
   display: inline-block;
   text-decoration: none;
-  width:50px;
-  height:50px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
-  background:
-    linear-gradient(#fff,#fff),
-    linear-gradient(#fff,#fff),
-    #032f72;
-  background-position:center;
-  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
-  background-repeat:no-repeat;
+  border: none;
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #032f72;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 #statistic-compare .btn-icon-add:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.28);
-  -webkit-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  transform: translateY(-5px);
-  background:
-    linear-gradient(#1374fc,#1374fc),
-    linear-gradient(#1374fc,#1374fc),
-    #fafafa;
-  background-position:center;
-  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
-  background-repeat:no-repeat;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0, -53%);
+  -ms-transform: translate(0, -53%);
+  transform: translate(0, -53%);
+  background: linear-gradient(#1374fc, #1374fc),
+    linear-gradient(#1374fc, #1374fc), #fafafa;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
 /****** Remove button ******/
 
-#statistic-compare .btn-icon-remove{
+#statistic-compare .btn-icon-remove {
   position: relative;
   left: 20px;
   text-decoration: none;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   cursor: pointer;
+  border: none;
   transform: rotate(45deg);
-  background:
-    linear-gradient(#fff,#fff),
-    linear-gradient(#fff,#fff),
-    #032f72;
-  background-position:center;
-  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
-  background-repeat:no-repeat;
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #032f72;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 #statistic-compare .btn-icon-remove:hover {
@@ -790,60 +789,49 @@ Responsive -> adaptation to devices
   -webkit-transform: translateY(-5px);
   -ms-transform: translateY(-5px);
   transform: translateY(-5px);
-  background:
-    linear-gradient(#1374fc,#1374fc),
-    linear-gradient(#1374fc,#1374fc),
-    #fafafa;
-  background-position:center;
+  background: linear-gradient(#ffffff, #ffffff),
+    linear-gradient(#ffffff, #ffffff), #e74646;
+  background-position: center;
   transform: rotate(45deg);
-  background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
-  background-repeat:no-repeat;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
 /****** Add/Remove Items ******/
 
-#statistic-compare .list{
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0px;
+#statistic-compare .list {
+  position: relative;
 }
 
-#statistic-compare .list li{
+#statistic-compare .list li {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-content:flex-start;
+  display: block;
   font-family: "Poppins", sans-serif;
   font-size: 28px;
   font-style: italic;
   color: #032f72;
-  top: 35px;
-  left: 600px;
   padding: 10px 20px;
-  width: 30%;
   font-weight: bold;
 }
 
 /****** Go to diagram ******/
 
-#statistic-compare .btn{
+#statistic-compare .show-btn {
   position: absolute;
   color: #0066ff;
   background-color: transparent;
   border: 3px solid #0066ff;
   font-size: 24px;
   top: 90%;
-  left: 40%;
+  transform: translate(-50%, 0);
   align-items: center;
   padding: 15px 88px;
   border-radius: 40px;
   transition-duration: 0.5s;
 }
 
-#statistic-compare .btn:hover {
+#statistic-compare .show-btn:hover {
   background-color: rgb(0, 102, 255);
   color: #fafafa;
   cursor: pointer;
