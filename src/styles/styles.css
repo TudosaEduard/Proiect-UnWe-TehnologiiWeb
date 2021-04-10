@@ -933,3 +933,105 @@ Responsive -> adaptation to devices
     height: 20px;
   }
 }
+
+
+#diagram-statistics {
+  background-image: linear-gradient(#003366, #0066ff);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+#diagram-statistics .upper-container{
+  position: absolute;
+  justify-content: space-around;
+  top: 35px;
+  left: 25%;
+}
+
+#diagram-statistics .lower-container{
+  position: absolute;
+  justify-content: space-between;
+  top: 90%;
+  left: 25%;
+}
+
+#diagram-statistics .upper-button{
+  display:inline-block;
+  margin-top: 10vh;
+  background-color: #1374fc;
+  border: 4px solid #1374fc;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fafafa;
+  flex:content;
+  flex-direction: row;
+  justify-content: flex-start;
+  transition-duration: 0.5s;
+}
+
+#diagram-statistics .upper-button:hover {
+  color: rgb(0, 102, 255);
+  background-color: #fafafa;
+  border-color: #fafafa;
+  cursor: pointer;
+}
+
+#diagram-statistics .lower-button-download{
+  position: absolute;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  transform: translate(-50%, 0);
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+  font-weight: bold;
+  bottom: -40px;
+  left: 20px;
+}
+
+#diagram-statistics .lower-button-download:hover {
+  color: rgb(0, 102, 255);
+  background-color: #fafafa;
+  border-color: #fafafa;
+  cursor: pointer;
+}
+
+#diagram-statistics .lower-button-data{
+  position: absolute;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  transform: translate(-50%, 0);
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+  font-weight: bold;
+  left: 900px;
+  bottom: -40px;
+}
+
+
+#diagram-statistics .lower-button-data:hover {
+  color: rgb(0, 102, 255);
+  background-color: #fafafa;
+  border-color: #fafafa;
+  cursor: pointer;
+}
+
+#diagram-statistics .box {
+  position: absolute; 
+  margin: auto;
+  height: 500px;
+  width: 60%;
+  top: 20%;
+  left: 20%;
+  border-style: transparent;
+  background-color: #152a55;
+
+}
