@@ -17,9 +17,9 @@
             </a>
             <nav class="">
                 <ul>
-                    <li><a href="#">Acasă</a></li>
-                    <li><a href="#">Județe</a></li>
-                    <li><a href="#">Statistici</a></li>
+                    <li><a data-page="hero" href="#hero">Acasă</a></li>
+                    <li><a data-page="county-details" href="#county-details">Județe</a></li>
+                    <li><a data-page="statistic-compare" href="#statistic-compare">Statistici</a></li>
                 </ul>
                 <i class="fa fa-bars mobile-nav-toggle"></i>
             </nav>
@@ -29,15 +29,15 @@
     <section id="hero">
         <div class="hero-wrapper">
             <div class="column">
-                <h1>
+                <h1 class="anim" data-animtype="from-left" data-animdelay="0s">
                     Statistici șomaj <br>
                     2020-2021
                 </h1>
-                <p>
+                <p class="anim" data-animtype="from-right" data-animdelay="0.2s">
                     Vezi statisticile șomajului din anul <br>
                     2020-2021
                 </p>
-                <button> Începe </button>
+                <button class="anim" data-animtype="from-bottom" data-animdelay="0.4s"> Începe </button>
             </div>
             <div class = "column">
                 <img src="assets/images/hero-image.png" class="hero-img">
@@ -46,8 +46,8 @@
     </section>
 
     <section id="county-details">
-        <h1>Detalii șomaj pe județ</h1>
-        <div class="map-wrapper">
+        <h1 class="anim" data-animtype="from-top" data-animdelay="0s">Detalii șomaj pe județ</h1>
+        <div class="map-wrapper anim" data-animtype="zoom" data-animdelay="0s">
             <div class="map-bg">
                 <svg class="map" baseprofile="tiny" fill="#00264D" height="705" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" version="1.2" viewbox="0 0 1000 705" width="1000" xmlns="http://www.w3.org/2000/svg">
                     <a title="Dolj">
@@ -481,6 +481,7 @@
         </div>
     </section>
 
+    <script src="src/script/animations.js"></script>
     <script src="src/script/counties.js"></script>
     <script src="src/script/county-inspector.js"></script>
     <script src="src/script/county-list-selector.js"></script> 

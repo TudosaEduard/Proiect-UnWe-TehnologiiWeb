@@ -21,7 +21,7 @@ navBtn.addEventListener('click', () => {
         navBtn.classList.remove("fa-bars");
         navBtn.classList.add("fa-window-close");
 
-    } else if (navBtn.classList.contains('fa-window-close')) {
+    } else {
 
         nav.classList.remove('nav-mobile');
         navBtn.classList.remove("fa-window-close");
@@ -29,3 +29,30 @@ navBtn.addEventListener('click', () => {
 
     }
 })
+
+/* Navbar animation when scrolling */
+const sections = document.querySelectorAll("section");
+const options = {
+    threshold: 0.85
+}
+
+const navAnimate = (entries) => {
+    entries.forEach(entry => {
+        const id = entry.target.id;
+        const activeAnchor = document.querySelector(`[data-page=${id}]`);
+        if(entry.isIntersecting) {
+            activeAnchor.classList.add('active-nav-elem');
+        }
+        if(!entry.isIntersecting) {
+            activeAnchor.classList.remove('active-nav-elem');
+        }
+    })
+}
+
+let observer = new IntersectionObserver(navAnimate, options);
+
+sections.forEach(section => {
+    observer.observe(section);
+})
+
+
