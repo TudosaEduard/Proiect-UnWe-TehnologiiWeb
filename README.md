@@ -37,29 +37,6 @@
             </ul>
         </div>
 
-       <!-- <div role="content-info">
-            <ol role="directory">
-                <li>
-                    <a href="#abstract">Abstract</a>
-                </li>
-                <li>
-                    <a href="#intoducere">Introducere</a>
-                </li>
-                <li>
-                    <a href="#structura">Structura</a>
-                </li>
-                <li>
-                    <a href="#interactiune">Interactiunea cu User-ul</a>
-                </li>
-                <li>
-                    <a href="#obiective">Obiective</a>
-                </li>
-                </ol>li>
-                    <a href="#concluzie">Concluzie</a>
-                </li>
-            </ol>
-        </div> -->
-
         <section id="abstract" role = "doc-abstract">
             <h2>1. Abstract:</h2>
             <p>Recurgând la un API REST/GraphQL propriu, să se realizeze un instrument Web de vizualizare și de comparare multi-criteriala <br>
