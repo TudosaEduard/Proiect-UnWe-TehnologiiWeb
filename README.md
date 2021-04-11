@@ -37,21 +37,49 @@
                 </li>
             </ul>
         </div>
-        <section role = "doc-abstract">
+
+        <div role="content-info">
+            <ol role="directory">
+                <a href="#abstract">
+                    <li>Abstract</li>
+                </a>
+                
+                <a href="#intoducere">
+                    <li>Introducere</li>
+                </a>
+                
+                <a href="#structura">
+                    <li>Structura</li>
+                </a>
+                
+                <a href="#interactiune">
+                    <li>Interactiunea cu User-ul</li>
+                </a>
+                
+                <a href="#obiective">
+                    <li>Obiective</li>
+                </a>
+                <a href="#concluzie">
+                    <li>Concluzie</li>
+                </a>
+            </ol>
+        </div>
+
+        <section id="abstract" role = "doc-abstract">
             <h2>1. Abstract:</h2>
             <p>Recurgând la un API REST/GraphQL propriu, să se realizeze un instrument Web de vizualizare și de comparare multi-criteriala <br>
                 (pe județe, nivel de educație, grupe de vârstă, mediu, perioadă de timp etc.) a datelor publice referitoare la șomajul din România<br> pe ultimele N luni (minim 12).
                 Statisticile, plus vizualizările generate – minim 3 maniere, plus cele cartografice pe baza<br> unor servicii Web de profil – vor putea fi exportate in formatele CSV, SVG si PDF.
                 </p>
         </section>
-        <section role = "doc-introduction">
+        <section id="introducere" role = "doc-introduction">
             <h2>2. Introducere:</h2>
             <p>Pentru a descrie in mare, intr-un mod simplu si concret creeatia noastra, am putea spune ca am incercat sa respectam cerinta<br>
                 in acelasi timp in care particularizam site-ul printr-un design cat se poate de reprezentativ pentru noi. Acest design a fost <br>
                 conceput pentru o practicabilitate ridicata si o parcurgere facila prin continutul sau. 
                 </p>
         </section>
-        <section role = "doc-structure">
+        <section id="structura" role = "doc-structure">
             <h2>3. Structura:</h2>
             <p> Site-ul proiectat de noi consta in 4 pagini diferite, independente ca scop, dar rolul fiecaruia duce la indeplinirea<br>
                 sau satisfactia fiecarui user. <br><br>
@@ -75,7 +103,7 @@
                 situate sub o plansa peste care vor fi expuse acestea.<br><br>
                 </p>
         </section>
-        <section role = "doc-interface">
+        <section id="interactiune" role = "doc-interface">
             <h2>4. Interactiunea cu User-ul:</h2>
             <p> Site-ul este conceput intr-o maniera cat se poate de friendly, pentru a fi utilizat atatd de useri experimentati.<br>
                 cat si de altii mai putin experimentati sau chiar noi pe acest site. Fiecare functionalitate este explicata prin text<br>
@@ -85,14 +113,14 @@
                 a cunoaste si celelalte optiuni puse la dispozitia sa.
                 </p>
         </section>
-        <section role = "doc-objectives">
+        <section id="obiective" role = "doc-objectives">
             <h2>5. Obiective</h2>
             <p> Din punct de vedere al obiectivelor ramase, putem spune ca sunte in cautare de noi moduri de usura modul de accesare al<br>
                 site-ului de catre un user nou si de a mentine in acelasi timp un standard ridicat al expunerii informatiilor in fata userilor<br>
                 experimentati. Printre acestea s-ar putea remarca: un tutorial de folosinta, sectiune de istoric al autarilor precedente cu <br>
                 rezultate obtinute, compararea pe baza a mai multe categorii de somaj, si in mod evident extinderea ariei de obtinere a informatiilor.<br> 
             </p>
-        <section role = "doc-conclusion">
+        <section id="concluzie" role = "doc-conclusion">
                 <h2>6. Concluzie</h2>
                 <p> Asadar, site-ul ofera un design fresh, neobositor si animat, folosind o gama de imagini si culori ce inspira curiozitate<br>
                     catre user. Aevm speranta, ca autori a acestui site, ca proiectul isi va atinge scopul si va ajuta vizitatorii sa dobandeasca<br>
