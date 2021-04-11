@@ -473,22 +473,54 @@
     <section id="diagram-statistics">
         <div class="chart">
             <div class="chart-menu">
-                <button id="choose-statistic">Alege Statistica</button>
-                <button id="choose-time">Alege intervalul de timp</button>
-                <button id="choose-chart-ype">Tipul graficului</button>
+                <div class="statistic">
+                    <button id="choose-statistic">Alege Statistica</button>
+                    <ul>
+                        <li><a href="#">Somaj 1</a></li>
+                        <li><a href="#">Somaj 2</a></li>
+                        <li><a href="#">Somaj 3</a></li>
+                      </ul>
+                </div>
+                <div class="time">
+                    <button id="choose-time">Alege intervalul de timp</button>
+                    <ul>
+                        <li><a href="#">Ianuarie</a></li>
+                        <li><a href="#">Februarie</a></li>
+                        <li><a href="#">Martie</a></li>
+                        <li><a href="#">Aprilie</a></li>
+                        <li><a href="#">Mai</a></li>
+                        <li><a href="#">Iunie</a></li>
+                        <li><a href="#">Iulie</a></li>
+                        <li><a href="#">August</a></li>
+                        <li><a href="#">Septembrie</a></li>
+                        <li><a href="#">Octombrie</a></li>
+                        <li><a href="#">Noiembrie</a></li>
+                        <li><a href="#">Decembrie</a></li>
+                      </ul>
+                </div>
+                <div class="chart-type">
+                    <button id="choose-chart-type">Tipul graficului</button>
+                    <ul>
+                        <li class="line-chart"><a href="#">Line</a></li>
+                        <li class="bar-chart"><a href="#">Bar</a></li>
+                        <li class="doughnut-chart"><a href="#">Doughnut</a></li>
+                      </ul>
+                </div>
             </div>
-            
             <div class="chart-canvas" id="chart"></div>
+            <canvas id="myChart"></canvas>
         </div>
 
-        <button id="download-data" class="download-button">Descarca grafic</button>
-        <button id="download-chart" class="download-button">Descarca datele</button>
+        <button id="download-data" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
+        <button id="download-chart" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
     </section>
 
+    <script src="src/script/chart-diagram.js"></script>   
     <script src="src/script/animations.js"></script>
     <script src="src/script/counties.js"></script>
     <script src="src/script/county-inspector.js"></script>
     <script src="src/script/county-list-selector.js"></script> 
-    <script src="src/script/app.js"></script>   
+    <script src="src/script/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>      
 </body>
 </html>
