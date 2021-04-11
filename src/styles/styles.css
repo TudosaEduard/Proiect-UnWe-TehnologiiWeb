@@ -1028,11 +1028,61 @@ Responsive -> adaptation to devices
 }
 
 #diagram-statistics .chart-menu {
-  display: flex;
-  align-items: center;
+  display: block;
+  text-align: center;
   position: relative;
-  justify-content: space-around;
-  margin: auto;
+}
+
+#diagram-statistics .chart-menu button:nth-child(2) {
+  margin: 0px 80px 0px 80px;
+}
+
+#diagram-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  background-color: #072d5e57;
+}
+
+#diagram-statistics .download-button {
+  position: absolute;
+  bottom: 5%;
+}
+
+#diagram-statistics #download-data {
+  right: 20%;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+#diagram-statistics #download-data:hover {
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#diagram-statistics #download-chart {
+  left: 20%;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+#diagram-statistics #download-chart:hover {
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+
 }
 
 #diagram-statistics #choose-statistic{
@@ -1092,190 +1142,213 @@ Responsive -> adaptation to devices
   cursor: pointer;
 }
 
-#diagram-statistics .chart-menu button:nth-child(2) {
-  margin: 0px 20px 0px 20px;
+/* Responsive last page */
+
+@media screen and (max-width: 1800px) {
+  #diagram-statistics #choose-statistic{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #diagram-statistics #choose-time{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #diagram-statistics #choose-chart-type{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
 }
 
-#diagram-statistics .chart-canvas {
-  width: 100%;
-  height: 85%;
-  background-color: #072d5e57;
+@media screen and (max-width: 1700px) {
+  #diagram-statistics #choose-statistic{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #diagram-statistics #choose-time{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #diagram-statistics #choose-chart-type{
+    padding: 5px 20px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 50px 0px 50px;
+  }
 }
 
-#diagram-statistics .download-button {
-  position: absolute;
-  bottom: 5%;
+@media screen and (max-width: 1550px) {
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 35px 0px 35px;
+  }
 }
 
-#diagram-statistics #download-data {
-  left: 20%;
-  color: #fafafa;
-  background-color: transparent;
-  border: 3px solid #fafafa;
-  font-size: 24px;
-  padding: 15px 88px;
-  border-radius: 40px;
-  transition-duration: 0.5s;
+@media screen and (max-width: 1460px) {
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 20px 0px 20px;
+  }
 }
 
-#diagram-statistics #download-data:hover {
-  background-color: #fafafa;
-  color: #1374fc;
-  transition: 0.5s;
-  cursor: pointer;
+@media screen and (max-width: 1410px) {
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 10px 0px 10px;
+  }
 }
 
-#diagram-statistics #download-chart {
-  right: 20%;
-  color: #fafafa;
-  background-color: transparent;
-  border: 3px solid #fafafa;
-  font-size: 24px;
-  padding: 15px 88px;
-  border-radius: 40px;
-  transition-duration: 0.5s;
-}
+@media screen and (max-width: 1380px) {
 
-#diagram-statistics #download-chart:hover {
-  background-color: #fafafa;
-  color: #1374fc;
-  transition: 0.5s;
-  cursor: pointer;
+    #diagram-statistics .chart-menu button:nth-child(2) {
+      margin: 0px 40px 0px 40px;
+    }
 
-}
+  #diagram-statistics #choose-statistic{
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 100;
+  }
 
-/****** Dropdown buttons ******/
+  #diagram-statistics #choose-time{
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 100;
+  }
 
-#diagram-statistics .statistic{
-  position: relative;
-}
-#diagram-statistics .time{
-  position: relative;
-}
-#diagram-statistics .chart-type {
-  position: relative;
-}
+  #diagram-statistics #choose-chart-type{
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 100;
+  }
 
-#diagram-statistics .statistic ul{
-  margin-top: 10px;
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  width: 231px;
-  height: 200px;
-  background: white;
-  list-style: none;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
-  opacity: 0;
-  border-radius: 4px;
-  font-family: "Poppins", sans-serif;
-}
+  #diagram-statistics #download-data {
+    right: 20%;
+    font-size: 20px;
+    padding: 15px 60px;
+  }
 
-#diagram-statistics .time ul {
-  margin-top: 10px;
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  width: 336px;
-  height: 350px;
-  background: white;
-  list-style: none;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
-  opacity: 0;
-  border-radius: 4px;
-  font-family: "Poppins", sans-serif;
-}
-
-#diagram-statistics .chart-type ul {
-  margin-top: 10px;
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  width: 216px;
-  height: 200px;
-  background: white;
-  list-style: none;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
-  opacity: 0;
-  border-radius: 4px;
-  font-family: "Poppins", sans-serif;
-}
-
-#diagram-statistics .statistic li{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-#diagram-statistics .time li {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-#diagram-statistics .chart-type li {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-#diagram-statistics .statistic li:hover{
-  background-color: #fafafa;
-}
-
-#diagram-statistics .time li:hover {
-  background-color: #fafafa;
-}
-
-#diagram-statistics .chart-type li:hover {
-  background-color: #fafafa;
+  #diagram-statistics #download-chart {
+    left: 20%;
+    font-size: 20px;
+    padding: 15px 60px;
+  }  
 
 }
 
-#diagram-statistics .statistic a{
-  color: black;
-  text-decoration: none;
+@media screen and (max-width: 1060px) {
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 10px 0px 10px;
+  }
 }
 
-#diagram-statistics .time a {
-  color: black;
-  text-decoration: none;
+@media screen and (max-width: 990px) {
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 10px 0px 10px;
+  }
+
+  #diagram-statistics #download-data {
+    right: 20%;
+    font-size: 15px;
+    padding: 15px 50px;
+  }
+
+  #diagram-statistics #download-chart {
+    left: 20%;
+    font-size: 15px;
+    padding: 15px 50px;
+  }
+  
+  #diagram-statistics .chart {
+    width: 70%;
+  }
 }
 
-#diagram-statistics .chart-type a {
-  color: black;
-  text-decoration: none;
+@media screen and (max-width: 850px){
+  #diagram-statistics .chart {
+    width: 80%;
+  }
+
+  #diagram-statistics #download-data {
+    font-size: 15px;
+    padding: 10px 45px;
+  }
+
+  #diagram-statistics #download-data {
+    right: 10%;
+    font-size: 15px;
+    padding: 15px 50px;
+  }
+
+  #diagram-statistics #download-chart {
+    left: 10%;
+    font-size: 15px;
+    padding: 15px 50px;
+  }
+
 }
 
-#diagram-statistics .statistic button:focus + ul{
-  opacity: 1;
-  pointer-events: all;
-  transform: translateY(0px);
-  z-index: 999;
+@media screen and (max-width: 750px){
+  #diagram-statistics .chart {
+    width: 90%;
+  }
+
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 0px 0px 0px;
+  }
 }
 
-#diagram-statistics .time button:focus + ul {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateY(0px);
-  z-index: 999;
-}
+@media screen and (max-width: 400px) {
+  #diagram-statistics #choose-statistic{
+    padding: 0;
+    font-size: 13px;
+    font-weight: 100;
+  }
 
-#diagram-statistics .chart-type button:focus + ul {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateY(0px);
-  z-index: 999;
+  #diagram-statistics #choose-time{
+    padding: 0;
+    font-size: 13px;
+    font-weight: 100;
+  }
+
+  #diagram-statistics #choose-chart-type{
+    padding: 0;
+    font-size: 13px;
+    font-weight: 100;
+  }
+
+  #diagram-statistics .chart-menu button:nth-child(2) {
+    margin: 0px 0px 0px 0px;
+  }
+
+  #diagram-statistics .chart {
+    width: 90%;
+  }
+
+  #diagram-statistics #download-data {
+    right: 20%;
+    border: 3px solid #fafafa;
+    font-size: 15px;
+    padding: 10px 45px;
+    border-radius: 40px;
+    transition-duration: 0.5s;
+  }
+
+  #diagram-statistics #download-chart {
+    bottom: 12%;
+    left: 20%;
+    border: 3px solid #fafafa;
+    font-size: 15px;
+    padding: 10px 45px;
+    border-radius: 40px;
+    transition-duration: 0.5s;
+  }
 }
