@@ -37,7 +37,7 @@
             </ul>
         </div>
 
-        <div role="content-info">
+       <!-- <div role="content-info">
             <ol role="directory">
                 <li>
                     <a href="#abstract">Abstract</a>
@@ -58,7 +58,7 @@
                     <a href="#concluzie">Concluzie</a>
                 </li>
             </ol>
-        </div>
+        </div> -->
 
         <section id="abstract" role = "doc-abstract">
             <h2>1. Abstract:</h2>
