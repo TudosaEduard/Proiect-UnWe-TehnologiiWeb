@@ -55,4 +55,11 @@ sections.forEach(section => {
     observer.observe(section);
 })
 
+/* Display chart function */
+const goToChart = () => {
+    let chartSection = document.getElementById("diagram-statistics");
+    chartSection.style.display = "block";
+    window.location.href='#diagram-statistics';
+}
+
 
