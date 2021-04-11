@@ -1,3 +1,4 @@
+#Proiect: UnWe
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
                 </li>
             </ul>
         </div>
-
+        
         <section role = "doc-abstract">
             <h2>1. Abstract:</h2>
             <p>Recurgând la un API REST/GraphQL propriu, să se realizeze un instrument Web de vizualizare și de comparare multi-criteriala <br>
