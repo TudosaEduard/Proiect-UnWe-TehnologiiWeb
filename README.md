@@ -38,9 +38,9 @@
     </div>
     <div role="content-info">
         <ol role="directory">
-            <a href="#abstract">
-                <li>Abstract</li>
-            </a>         
+            <li>
+            <a href="#abstract">Abstract</a>
+            </li>         
             <a href="#intoducere">
                 <li>Introducere</li>
             </a>   
