@@ -1,4 +1,3 @@
-#Proiect UnWe
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,28 +39,24 @@
 
         <div role="content-info">
             <ol role="directory">
-                <a href="#abstract">
-                    <li>Abstract</li>
-                </a>
-                
-                <a href="#intoducere">
-                    <li>Introducere</li>
-                </a>
-                
-                <a href="#structura">
-                    <li>Structura</li>
-                </a>
-                
-                <a href="#interactiune">
-                    <li>Interactiunea cu User-ul</li>
-                </a>
-                
-                <a href="#obiective">
-                    <li>Obiective</li>
-                </a>
-                <a href="#concluzie">
-                    <li>Concluzie</li>
-                </a>
+                <li>
+                    <a href="#abstract">Abstract</a>
+                </li>
+                <li>
+                    <a href="#intoducere">Introducere</a>
+                </li>
+                <li>
+                    <a href="#structura">Structura</a>
+                </li>
+                <li>
+                    <a href="#interactiune">Interactiunea cu User-ul</a>
+                </li>
+                <li>
+                    <a href="#obiective">Obiective</a>
+                </li>
+                <li>
+                    <a href="#concluzie">Concluzie</a>
+                </li>
             </ol>
         </div>
 
