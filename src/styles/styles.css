@@ -1433,6 +1433,7 @@ Responsive -> adaptation to devices
 
   #diagram-statistics #download-chart {
     font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
