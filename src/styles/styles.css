@@ -1028,9 +1028,11 @@ Responsive -> adaptation to devices
 }
 
 #diagram-statistics .chart-menu {
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
   position: relative;
+  justify-content: space-around;
+  margin: auto;
 }
 
 #diagram-statistics #choose-statistic{
@@ -1140,4 +1142,140 @@ Responsive -> adaptation to devices
   transition: 0.5s;
   cursor: pointer;
 
+}
+
+/****** Dropdown buttons ******/
+
+#diagram-statistics .statistic{
+  position: relative;
+}
+#diagram-statistics .time{
+  position: relative;
+}
+#diagram-statistics .chart-type {
+  position: relative;
+}
+
+#diagram-statistics .statistic ul{
+  margin-top: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 231px;
+  height: 200px;
+  background: white;
+  list-style: none;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  opacity: 0;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+}
+
+#diagram-statistics .time ul {
+  margin-top: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 336px;
+  height: 350px;
+  background: white;
+  list-style: none;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  opacity: 0;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+}
+
+#diagram-statistics .chart-type ul {
+  margin-top: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 216px;
+  height: 200px;
+  background: white;
+  list-style: none;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  opacity: 0;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+}
+
+#diagram-statistics .statistic li{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#diagram-statistics .time li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#diagram-statistics .chart-type li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#diagram-statistics .statistic li:hover{
+  background-color: #fafafa;
+}
+
+#diagram-statistics .time li:hover {
+  background-color: #fafafa;
+}
+
+#diagram-statistics .chart-type li:hover {
+  background-color: #fafafa;
+
+}
+
+#diagram-statistics .statistic a{
+  color: black;
+  text-decoration: none;
+}
+
+#diagram-statistics .time a {
+  color: black;
+  text-decoration: none;
+}
+
+#diagram-statistics .chart-type a {
+  color: black;
+  text-decoration: none;
+}
+
+#diagram-statistics .statistic button:focus + ul{
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
+  z-index: 999;
+}
+
+#diagram-statistics .time button:focus + ul {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
+  z-index: 999;
+}
+
+#diagram-statistics .chart-type button:focus + ul {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0px);
+  z-index: 999;
 }
