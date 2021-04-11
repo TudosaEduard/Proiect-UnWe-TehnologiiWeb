@@ -124,35 +124,34 @@ header .active {
   }
 }
 
-header .active{
-  background-color: teal;
+header .active {
+  background-color: rgba(0, 102, 255, 0.9);
   transition: 0.5s;
 }
 
-@media screen and (max-width: 952px){
-  header .logo img{
+@media screen and (max-width: 952px) {
+  header .logo img {
     max-height: 90px;
   }
 }
 
-@media screen and (max-width: 768px){
-  header .logo img{
+@media screen and (max-width: 768px) {
+  header .logo img {
     max-height: 70px;
   }
 }
 
-@media screen and (max-width: 550px){
-  header .logo img{
+@media screen and (max-width: 550px) {
+  header .logo img {
     max-height: 50px;
   }
 }
 
-@media screen and (max-width: 360px){
-  header .logo img{
+@media screen and (max-width: 360px) {
+  header .logo img {
     max-height: 25px;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Navbar
