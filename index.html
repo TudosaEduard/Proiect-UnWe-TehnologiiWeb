@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
     <link rel="stylesheet" href="src/styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 
@@ -479,7 +480,7 @@
                         <li><a href="#">Somaj 1</a></li>
                         <li><a href="#">Somaj 2</a></li>
                         <li><a href="#">Somaj 3</a></li>
-                      </ul>
+                    </ul>
                 </div>
                 <div class="time">
                     <button id="choose-time">Alege intervalul de timp</button>
@@ -501,14 +502,15 @@
                 <div class="chart-type">
                     <button id="choose-chart-type">Tipul graficului</button>
                     <ul>
-                        <li class="line-chart"><a href="#">Line</a></li>
-                        <li class="bar-chart"><a href="#">Bar</a></li>
-                        <li class="doughnut-chart"><a href="#">Doughnut</a></li>
-                      </ul>
+                        <li id="line-chart" class="line-chart">Line</li>
+                        <li id="bar-chart" class="bar-chart">Bar</li>
+                        <li id="doughnut-chart" class="doughnut-chart">Doughnut</li>
+                    </ul>
                 </div>
             </div>
-            <div class="chart-canvas" id="chart"></div>
-            <canvas id="myChart"></canvas>
+            <div class="chart-canvas" id="chart">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
         <button id="download-data" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
@@ -520,7 +522,6 @@
     <script src="src/script/counties.js"></script>
     <script src="src/script/county-inspector.js"></script>
     <script src="src/script/county-list-selector.js"></script> 
-    <script src="src/script/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>      
+    <script src="src/script/app.js"></script>      
 </body>
 </html>
