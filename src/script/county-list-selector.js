@@ -15,6 +15,7 @@ function addItem() {
             
                 li.setAttribute('id', candidate.value);
                 li.appendChild(document.createTextNode(candidate.value));
+                li.style.animation = 'from-left 0.5s forwards ease-out';
 
                 var button = document.createElement("button");
                 var i = document.createElement("i");

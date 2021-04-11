@@ -72,6 +72,17 @@ body {
   }
 }
 
+@keyframes to-right {
+  from {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, 0%);
+    opacity: 0;
+  }
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -742,6 +753,13 @@ Responsive -> adaptation to devices
   top: 25px;
 }
 
+#statistic-compare .choose-county {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #statistic-compare .input-wrapper {
   position: relative;
   display: inline-block;
@@ -755,17 +773,20 @@ Responsive -> adaptation to devices
   font-size: 28px;
   font-style: italic;
   color: rgb(134, 120, 120);
-  border: 3px solid #0066ff;
+  border-style: hidden hidden solid hidden;
+  background-color: transparent;
+  border-color: #2c4964;
+  border-width: 3px;
   outline: none;
-  padding: 16px;
+  padding: 8px 16px;
   box-sizing: border-box;
-  transition: 0.5;
+  transition: 0.5s;
 }
 
 #statistic-compare .add-text:focus {
   border-color: #032f72;
-  box-shadow: 0 0 8px 0 #032f72;
-  color: #0066ff;
+  color: #032f72;
+  box-shadow: 0px 40px 50px rgba(0, 0, 0, 0.28);
 }
 
 /****** Autocomplete ******/
@@ -778,9 +799,10 @@ Responsive -> adaptation to devices
   background-color: #fafafa;
   width: 100%;
   border-style: hidden solid solid solid;
-  border-color: #032f72;
-  border-width: 3px;
+  border-color: #032f728a;
+  border-width: 0px 2px 3px 2px;
   box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.28);
   pointer-events: none;
   opacity: 0;
   z-index: 1;
@@ -815,9 +837,8 @@ Responsive -> adaptation to devices
 
 #statistic-compare .btn-icon-add {
   position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
   display: inline-block;
+  bottom: 0;
   text-decoration: none;
   width: 50px;
   height: 50px;
@@ -825,7 +846,7 @@ Responsive -> adaptation to devices
   cursor: pointer;
   border: none;
   margin-left: 10px;
-  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #032f72;
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #2c4964;
   background-position: center;
   background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
   background-repeat: no-repeat;
@@ -906,21 +927,21 @@ Responsive -> adaptation to devices
 
 #statistic-compare .show-btn {
   position: absolute;
-  color: #0066ff;
-  background-color: transparent;
-  border: 3px solid #0066ff;
+  color: #ffffff;
+  background-color: #0066ff;
+  border: none;
   font-size: 24px;
   transform: translate(-50%, 0);
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
   padding: 15px 88px;
   border-radius: 40px;
   transition-duration: 0.5s;
 }
 
 #statistic-compare .show-btn:hover {
-  background-color: rgb(0, 102, 255);
-  color: #fafafa;
+  transform: translate(-50%, -20px);
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.205);
   cursor: pointer;
 }
 
@@ -979,7 +1000,7 @@ Responsive -> adaptation to devices
 
 @media screen and (max-width: 400px) {
   #statistic-compare h1 {
-    margin-top: 230px;
+    margin-top: 100px;
     font-size: 30px;
   }
 
