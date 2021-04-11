@@ -1022,7 +1022,7 @@ Responsive -> adaptation to devices
   position: absolute;
   width: 60%;
   height: 80vh;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -1033,8 +1033,65 @@ Responsive -> adaptation to devices
   position: relative;
 }
 
+#diagram-statistics #choose-statistic{
+  background-color: #1374fc;
+  border: 2px solid #1374fc;
+  padding: 10px 30px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fafafa;
+  flex:content;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#diagram-statistics #choose-statistic:hover{
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#diagram-statistics #choose-time{
+  background-color: #1374fc;
+  border: 2px solid #1374fc;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 10px 30px;
+  color: #fafafa;
+  flex:content;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#diagram-statistics #choose-time:hover{
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#diagram-statistics #choose-chart-type{
+  background-color: #1374fc;
+  border: 2px solid #1374fc;
+  padding: 10px 30px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fafafa;
+  flex:content;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#diagram-statistics #choose-chart-type:hover{
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
 #diagram-statistics .chart-menu button:nth-child(2) {
-  margin: 0px 80px 0px 80px;
+  margin: 0px 20px 0px 20px;
 }
 
 #diagram-statistics .chart-canvas {
@@ -1049,9 +1106,38 @@ Responsive -> adaptation to devices
 }
 
 #diagram-statistics #download-data {
-  left: 30%;
+  left: 20%;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+#diagram-statistics #download-data:hover {
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 #diagram-statistics #download-chart {
-  right: 30%;
+  right: 20%;
+  color: #fafafa;
+  background-color: transparent;
+  border: 3px solid #fafafa;
+  font-size: 24px;
+  padding: 15px 88px;
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+#diagram-statistics #download-chart:hover {
+  background-color: #fafafa;
+  color: #1374fc;
+  transition: 0.5s;
+  cursor: pointer;
+
 }
