@@ -37,28 +37,6 @@
             </li>
         </ul>
     </div>
-    <div role="content-info">
-        <ol role="directory">
-            <li>
-            <a href="#abstract">Abstract</a>
-            </li>         
-            <a href="#intoducere">
-                <li>Introducere</li>
-            </a>   
-            <a href="#structura">
-                <li>Structura</li>
-            </a> 
-            <a href="#interactiune">
-                <li>Interactiunea cu User-ul</li>
-            </a>
-            <a href="#obiective">
-                <li>Obiective</li>
-            </a>
-            <a href="#concluzie">
-                <li>Concluzie</li>
-            </a>
-        </ol>
-    </div>
     <section id="abstract" role="doc-abstract">
         <h2>
             <span>1.</span> Abstract
