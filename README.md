@@ -54,7 +54,7 @@
                 <li>
                     <a href="#obiective">Obiective</a>
                 </li>
-                <li>
+                </ol>li>
                     <a href="#concluzie">Concluzie</a>
                 </li>
             </ol>
