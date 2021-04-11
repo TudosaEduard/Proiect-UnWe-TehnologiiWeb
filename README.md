@@ -8,6 +8,7 @@
     <title>Documentation</title>
 </head>
 <body>
+  <article>
     <header>
         <h1>Unemployment WEB Visualiser</h1>
     </header>
@@ -136,5 +137,6 @@
             Onofrei Albert-Andrei
         </h3>
     </section>
+    </article>
 </body>
 </html>
