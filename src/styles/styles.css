@@ -614,14 +614,14 @@ Responsive -> adaptation to devices
   width: 100%;
   height: 30%;
   background: url("../../assets/images/banner.png");
-  background-size: 100% 100%;
+  background-size: 100% 90%;
   background-repeat: no-repeat;
 }
 
 #county-details h1 {
   position: relative;
   color: #2c4964;
-  font-size: 54px;
+  font-size: 50px;
   font-weight: 600;
   padding-top: 0px;
 }

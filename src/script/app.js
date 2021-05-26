@@ -59,7 +59,10 @@ sections.forEach(section => {
 const goToChart = () => {
     let chartSection = document.getElementById("diagram-statistics");
     chartSection.style.display = "block";
-    window.location.href='#diagram-statistics';
+    setTimeout(function () {
+        window.location.href='#diagram-statistics';
+    } , 800);
 }
+
 
 
