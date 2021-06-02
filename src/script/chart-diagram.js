@@ -1,5 +1,5 @@
 
-let myChart;
+/*let myChart;
 
 const initPlot = () => {
     var xValues = [100,200,300,400,500,600,700,800,900,1000];
@@ -82,7 +82,7 @@ const linePlot = () => {
     });
 }
 
-const barPlot = () => {
+/*const barPlot = () => {
     myChart.destroy();
     var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
     var yValues = [55, 49, 44, 24, 15];
@@ -149,4 +149,4 @@ document.querySelector('#bar-chart').addEventListener('click', (e) => {
 
 document.querySelector('#donught-chart').addEventListener('click', (e) => {
     donughtPlot();
-});
+});*/

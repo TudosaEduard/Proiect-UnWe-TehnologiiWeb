@@ -1494,3 +1494,317 @@ Responsive -> adaptation to devices
     font-size: 18px;
   }
 }
+
+/*-------------------------------------------------------*/
+
+#county-statistics {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  text-align: center;
+}
+
+#county-statistics h1 {
+  position: relative;
+  color: #2c4964;
+  font-size: 50px;
+  font-weight: 600;
+  margin-top: 80px;
+}
+
+#diagram-statistics h1::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  bottom: -20px;
+  background-color: #0066ff;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#county-statistics .charts {
+  position: relative;
+  display: block;
+}
+
+/* Bar chart */
+
+#county-statistics .bar-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, -5%);
+}
+
+#county-statistics .bar-chart .text-bar h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .bar-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .bar-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar {
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-5%, 50%);
+}
+
+#county-statistics .dropdown-bar .month-bar {
+  transform: translate(145%, -50%);
+}
+
+/* Download buttons */
+
+#county-statistics #download-bar-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-bar-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-bar-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-bar-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Doughnut chart */
+
+#county-statistics .doughnut-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, 20%);
+}
+
+#county-statistics .doughnut-chart .text-bar h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .doughnut-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .doughnut-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar {
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-5%, 50%);
+}
+
+#county-statistics .dropdown-bar .month-bar {
+  transform: translate(145%, -50%);
+}
+
+/* Download buttons */
+
+#county-statistics #download-doughnut-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-doughnut-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-doughnut-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-doughnut-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Line chart */
+
+#county-statistics .line-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, 30%);
+}
+
+#county-statistics .line-chart .text-bar h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .line-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .line-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+/* Download buttons */
+
+#county-statistics #download-line-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-line-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-line-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-line-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+  #county-statistics .bar-chart .buttons-bar {
+    display: block;
+  }
+  #county-statistics #download-line-chart {
+    margin-right: 20px;
+  }
+  #county-statistics #download-line-data {
+    margin-left: 20px;
+  }
+}
