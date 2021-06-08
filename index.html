@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/styles/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 </head>
 <body>
 
@@ -461,7 +462,7 @@
         <div class="choose-county" >
             <div class="input-group">
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Adaugă județ (maxim 5)" class="add-text" id="candidate">
+                    <input type="text" placeholder="Adaugă județ (maxim 3)" class="add-text" id="candidate">
                 </div>
                 <button onclick="addItem()" class="btn-icon-add"><i class="plus"></i></button>
                 <div class="autocom-box"></div>
@@ -472,42 +473,130 @@
     </section>
 
     <section id="diagram-statistics">
-        <div class="chart">
-            <div class="chart-menu">
-
-                <div class="dropdown">
-                    <button id="choose-statistic">Alege Statistica</button>
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 2</a>
-                        <a>Link 3</a>
-                    </div>
+        <h1 class="anim" data-animtype="from-top" data-animdelay="0s">Vezi aici statistici de comparare</h1>
+        <div class="charts">
+            <div class="bar-chart">
+                <div class="text-bar">
+                    <h1>Statistici pe grupe de vârstă</h1>
                 </div>
-
-                <div class="dropdown">
-                    <button id="choose-time">Alege intervalul de timp</button>
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 2</a>
-                        <a>Link 3</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button id="choose-chart-type">Tipul graficului</button>
-                    <div class="dropdown-content">
-                        <a id="line-chart">Line</a>
-                        <a id="bar-chart">Barplot</a>
-                        <a id="donught-chart">Donught</a>
-                    </div>
+                <div class="dropdown-bar">
+                    <h1>Alege luna si anul pentru comparare: </h1>
+                    <select class="month-bar" id="monthBar">
+                        <option value="1">Ianuarie</option>
+                        <option value="2">Februarie</option>   
+                        <option value="3">Martie</option>   
+                        <option value="4">Aprilie</option>   
+                        <option value="5">Mai</option>        
+                        <option value="6">Iunie</option>   
+                        <option value="7">Iulie</option>   
+                        <option value="8">August</option>   
+                        <option value="9">Septembrie</option>   
+                        <option value="10">Octombrie</option>
+                        <option value="11">Noiembrie</option>  
+                        <option value="12">Decembrie</option>     
+                     </select>
+                     <select class="year-bar" id="yearBar">
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>   
+                        <option value="2019">2019</option>   
+                     </select>
+                </div>  
+                <canvas class="chart-canvas" id="barChart"></canvas>
+                <div class="buttons-bar">
+                    <button id="download-chart-bar" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
+                    <button id="download-data-bar" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
                 </div>
             </div>
-            
-            <canvas class="chart-canvas" id="myChart"></canvas>
+            <div class="doughnut-chart">
+                <div class="text-doughnut">
+                    <h1>Statistici după gen</h1>
+                </div>
+                <div class="dropdown-doughnut">
+                    <h1>Alege luna si anul pentru comparare: </h1>
+                    <select class="month-doughnut">
+                        <option value="1">Ianuarie</option>
+                        <option value="2">Februarie</option>   
+                        <option value="3">Martie</option>   
+                        <option value="4">Aprilie</option>   
+                        <option value="5">Mai</option>        
+                        <option value="6">Iunie</option>   
+                        <option value="7">Iulie</option>   
+                        <option value="8">August</option>   
+                        <option value="9">Septembrie</option>   
+                        <option value="10">Octombrie</option>
+                        <option value="11">Noiembrie</option>  
+                        <option value="12">Decembrie</option>     
+                    </select>
+                    <select class="year-doughnut">
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>   
+                        <option value="2019">2019</option>   
+                     </select>
+                </div>
+                <canvas class="chart-canvas" id="maleChart"></canvas>
+                <div class="buttons-doughnut1">
+                    <button id="download-chart-male" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
+                    <button id="download-data-male" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
+                </div>
+                <canvas class="chart-canvas" id="femaleChart"></canvas>
+                <div class="buttons-doughnut2">
+                    <button id="download-chart-female" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
+                    <button id="download-data-female" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
+                </div>
+            </div>
+            <div class="line-chart">
+                <div class="text-line">
+                    <h1>Statistici pe număr total de șomeri</h1>
+                </div>
+                <div class="dropdown-line">
+                    <h1>Alege intervalul de timp: </h1>
+                    <select class="month-from">
+                        <option value="1">Ianuarie</option>
+                        <option value="2">Februarie</option>   
+                        <option value="3">Martie</option>   
+                        <option value="4">Aprilie</option>   
+                        <option value="5">Mai</option>        
+                        <option value="6">Iunie</option>   
+                        <option value="7">Iulie</option>   
+                        <option value="8">August</option>   
+                        <option value="9">Septembrie</option>   
+                        <option value="10">Octombrie</option>
+                        <option value="11">Noiembrie</option>  
+                        <option value="12">Decembrie</option>         
+                    </select>
+                    <select class="year-from">
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>   
+                        <option value="2019">2019</option>     
+                     </select>
+                     <p class="line">-</p>
+                    <select class="month-to">
+                        <option value="1">Ianuarie</option>
+                        <option value="2">Februarie</option>   
+                        <option value="3">Martie</option>   
+                        <option value="4">Aprilie</option>   
+                        <option value="5">Mai</option>        
+                        <option value="6">Iunie</option>   
+                        <option value="7">Iulie</option>   
+                        <option value="8">August</option>   
+                        <option value="9">Septembrie</option>   
+                        <option value="10">Octombrie</option>
+                        <option value="11">Noiembrie</option>  
+                        <option value="12">Decembrie</option>          
+                     </select>
+                     <select class="year-to">
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>   
+                        <option value="2019">2019</option>     
+                     </select>
+                </div>  
+                <canvas class="chart-canvas" id="lineChart"></canvas>
+                <div class="buttons-line">
+                    <button id="download-chart-line" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
+                    <button id="download-data-line" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
+                </div>
+            </div>
         </div>
-
-        <button id="download-chart" class="download-button"><i class="fa fa-download"></i>  Descarca grafic</button>
-        <button id="download-data" class="download-button"><i class="fa fa-download"></i>  Descarca datele</button>
     </section>
 
     <script src="src/script/chart-diagram.js"></script>

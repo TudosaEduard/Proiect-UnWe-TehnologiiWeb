@@ -2,11 +2,13 @@
 const mapBig = document.querySelector('.map-bg .map');
 mapBig.addEventListener('click', (e) => {
     let selectedCounty = e.target;
+
 })
 
 const mapSmall = document.querySelector('#surface1');
 mapSmall.addEventListener('click', (e) => {
     let selectedCounty = e.target.parentNode;
+    
 })
 
 /* Display info when hovering on a county*/

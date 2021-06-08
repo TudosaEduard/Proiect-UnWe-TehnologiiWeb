@@ -609,12 +609,12 @@ Responsive -> adaptation to devices
 #county-details::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 45%;
   right: 0;
   width: 100%;
   height: 30%;
   background: url("../../assets/images/banner.png");
-  background-size: 100% 90%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
@@ -1061,436 +1061,1006 @@ Responsive -> adaptation to devices
 # Chart page
 --------------------------------------------------------------*/
 #diagram-statistics {
-  background-image: linear-gradient(#003366, #0066ff);
   position: relative;
-  overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: 320vh;
+  text-align: center;
   display: none;
 }
 
-#diagram-statistics .chart {
+#diagram-statistics h1 {
+  position: relative;
+  color: #2c4964;
+  font-size: 50px;
+  font-weight: 600;
+  margin-top: 80px;
+}
+
+#diagram-statistics h1::before {
+  content: "";
   position: absolute;
+  width: 100px;
+  height: 4px;
+  bottom: -20px;
+  background-color: #0066ff;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#diagram-statistics .charts {
+  position: relative;
+  display: block;
+}
+
+/*Bar chart page*/
+
+#diagram-statistics .bar-chart{
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 100vh;
+  transform: translate(35% , -5%);
+}
+
+#diagram-statistics .bar-chart .text-bar h1{
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#diagram-statistics .bar-chart h1::before{
+  display: none;
+}
+
+#diagram-statistics #barChart {
+  border: 2px solid #e2e2e2;
+  border-top: #FFFFFF;
+  border-bottom: #FFFFFF;
+  background-color: #FFFFFF;
+  padding: 4px 4px 4px 4px;
+  padding-bottom: 10px;
+}
+
+#diagram-statistics .bar-chart .buttons-bar{
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+#diagram-statistics .dropdown-bar{
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#diagram-statistics .dropdown-bar h1{
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-9% , 50%);
+}
+
+#diagram-statistics .dropdown-bar .month-bar{
+  transform: translate(175% , -50%);
+}
+
+#diagram-statistics .dropdown-bar .year-bar{
+  transform: translate(300% , -50%);
+}
+
+/*Doughnut chart page*/
+
+#diagram-statistics .doughnut-chart{
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 170vh;
+  transform: translate(35.5% , -10%);
+}
+
+#diagram-statistics .doughnut-chart h1::before{
+  display: none;
+}
+
+#diagram-statistics .doughnut-chart .text-doughnut h1{
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -4px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#diagram-statistics .dropdown-doughnut{
+  position: relative;
+  margin-right: -4px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#diagram-statistics .dropdown-doughnut h1{
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-9% , 50%);
+}
+
+#diagram-statistics .dropdown-doughnut .month-doughnut{
+  transform: translate(175% , -50%);
+}
+
+#diagram-statistics .dropdown-doughnut .year-doughnut{
+  transform: translate(300% , -50%);
+}
+
+
+#diagram-statistics #maleChart{
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+  background-color: transparent;
+}
+
+#diagram-statistics #femaleChart{
+  padding-top: 20px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+  background-color: transparent;
+}
+
+#diagram-statistics .doughnut-chart .buttons-doughnut1{
+  position: relative;
+  margin-right: -4px;
+  border: 2px solid #e2e2e2;
+  border-top: transparent;
+}
+
+#diagram-statistics .doughnut-chart .buttons-doughnut2{
+  position: relative;
+  margin-right: -4px;
+  border: 2px solid #e2e2e2;
+  border-top: transparent;
+}
+
+/*Line chart*/
+
+#diagram-statistics .line-chart{
+  position: relative;
+  display: block;
   width: 60%;
   height: 80vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(35% , -30%);
 }
 
-#diagram-statistics .chart-menu {
-  display: block;
-  text-align: center;
+#diagram-statistics .line-chart .text-line h1{
   position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
 }
 
-#diagram-statistics .chart-menu button:nth-child(2) {
-  margin: 0px 80px 0px 80px;
-}
-
-#diagram-statistics .dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-#diagram-statistics .dropdown-content {
+#diagram-statistics .line-chart h1::before{
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 }
 
-#diagram-statistics .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+#diagram-statistics #lineChart {
+  border: 2px solid #e2e2e2;
+  border-top: #FFFFFF;
+  border-bottom: #FFFFFF;
+  background-color: #FFFFFF;
+  padding: 4px 4px 4px 4px;
+  padding-bottom: 10px;
 }
 
-#diagram-statistics .dropdown-content a:hover {
-  background-color: #ececec;
-  cursor: pointer;
+#diagram-statistics .line-chart .buttons-line{
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
 }
 
-#diagram-statistics .dropdown:hover .dropdown-content {
-  display: block;
+#diagram-statistics .dropdown-line{
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
 }
 
-#diagram-statistics .chart-canvas {
-  width: 100%;
-  height: 85%;
-  background-color: #072d5e57;
+#diagram-statistics .dropdown-line h1{
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translateY(50%);
 }
 
-#diagram-statistics .download-button {
-  position: absolute;
-  bottom: 5%;
+#diagram-statistics .dropdown-line .month-from{
+  transform: translate(-100% , 110%);
 }
 
-#diagram-statistics #download-data {
-  right: 20%;
-  color: #fafafa;
+#diagram-statistics .dropdown-line .month-to{
+  transform: translate(100% , -110%);
+}
+
+#diagram-statistics .dropdown-line .year-from{
+  transform: translate(-170% , 110%);
+}
+
+#diagram-statistics .dropdown-line .year-to{
+  transform: translate(170% , -110%);
+}
+
+#diagram-statistics .dropdown-line .line{
+  margin: 0;
+  font-size: 18px;
+  color: #2c4964;
+}
+
+/* Download buttons */
+
+#diagram-statistics #download-data-bar {
   background-color: transparent;
-  border: 3px solid #fafafa;
-  font-size: 24px;
-  padding: 15px 88px;
-  border-radius: 40px;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 160px;
 }
 
-#diagram-statistics #download-data:hover {
-  background-color: #fafafa;
-  color: #1374fc;
+#diagram-statistics #download-data-bar:hover {
   transition: 0.5s;
   cursor: pointer;
 }
 
-#diagram-statistics #download-chart {
+#diagram-statistics #download-chart-bar {
   left: 20%;
-  color: #fafafa;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: transparent;
-  border: 3px solid #fafafa;
-  font-size: 24px;
-  padding: 15px 88px;
-  border-radius: 40px;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding: 0;
   transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 160px;
 }
 
-#diagram-statistics #download-chart:hover {
-  background-color: #fafafa;
-  color: #1374fc;
+#diagram-statistics #download-chart-bar:hover {
   transition: 0.5s;
   cursor: pointer;
 }
 
-#diagram-statistics #choose-statistic {
-  background-color: #1374fc;
-  border: none;
-  padding: 10px 30px;
-  font-size: 30px;
-  font-weight: 500;
-  color: #fafafa;
-  flex: content;
-  flex-direction: row;
-  justify-content: flex-start;
+#diagram-statistics .buttons-doughnut1 #download-data-male {
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 160px;
 }
 
-#diagram-statistics #choose-statistic:hover {
-  background-color: #fafafa;
-  color: #1374fc;
+#diagram-statistics .buttons-doughnut1 #download-data-male:hover {
   transition: 0.5s;
   cursor: pointer;
 }
 
-#diagram-statistics #choose-time {
-  background-color: #1374fc;
-  border: none;
-  font-size: 30px;
-  font-weight: 500;
-  padding: 10px 30px;
-  color: #fafafa;
-  flex: content;
-  flex-direction: row;
-  justify-content: flex-start;
+#diagram-statistics .buttons-doughnut1 #download-chart-male {
+  left: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding: 0;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 160px;
 }
 
-#diagram-statistics #choose-time:hover {
-  background-color: #fafafa;
-  color: #1374fc;
+#diagram-statistics #download-chart-male:hover {
   transition: 0.5s;
   cursor: pointer;
 }
 
-#diagram-statistics #choose-chart-type {
-  background-color: #1374fc;
-  border: none;
-  padding: 10px 30px;
-  font-size: 30px;
-  font-weight: 500;
-  color: #fafafa;
-  flex: content;
-  flex-direction: row;
-  justify-content: flex-start;
+#diagram-statistics #download-data-female {
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 160px;
 }
 
-#diagram-statistics #choose-chart-type:hover {
-  background-color: #fafafa;
-  color: #1374fc;
+#diagram-statistics #download-data-female:hover {
   transition: 0.5s;
   cursor: pointer;
 }
 
-/* Responsive chart page */
-
-@media screen and (max-width: 1800px) {
-  #diagram-statistics #choose-statistic {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  #diagram-statistics #choose-time {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  #diagram-statistics #choose-chart-type {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
+#diagram-statistics #download-chart-female {
+  left: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding: 0;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 160px;
 }
 
-@media screen and (max-width: 1700px) {
-  #diagram-statistics .chart {
-    height: 65vh;
-  }
-
-  #diagram-statistics #choose-statistic {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  #diagram-statistics #choose-time {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  #diagram-statistics #choose-chart-type {
-    padding: 5px 20px;
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 50px 0px 50px;
-  }
+#diagram-statistics #download-chart-female:hover {
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1550px) {
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 35px 0px 35px;
-  }
+#diagram-statistics #download-data-line {
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 160px;
 }
 
-@media screen and (max-width: 1460px) {
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 20px 0px 20px;
-  }
+#diagram-statistics #download-data-line:hover {
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1410px) {
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 10px 0px 10px;
-  }
+#diagram-statistics #download-chart-line {
+  left: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  color: #2c4964;
+  border: transparent;
+  font-size: 15px;
+  padding: 0;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 160px;
 }
 
-@media screen and (max-width: 1380px) {
-  #diagram-statistics .chart {
-    height: 60vh;
-  }
-
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 40px 0px 40px;
-  }
-
-  #diagram-statistics #choose-statistic {
-    padding: 5px 10px;
-    font-size: 20px;
-    font-weight: 100;
-  }
-
-  #diagram-statistics #choose-time {
-    padding: 5px 10px;
-    font-size: 20px;
-    font-weight: 100;
-  }
-
-  #diagram-statistics #choose-chart-type {
-    padding: 5px 10px;
-    font-size: 20px;
-    font-weight: 100;
-  }
-
-  #diagram-statistics #download-data {
-    right: 20%;
-    bottom: 15%;
-    padding: 15px 60px;
-  }
-
-  #diagram-statistics #download-chart {
-    left: 20%;
-    bottom: 15%;
-    padding: 15px 60px;
-  }
+#diagram-statistics #download-chart-line:hover {
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 1130px) {
-  #diagram-statistics .chart {
+
+@media screen and (max-width: 1355px)  {
+  #diagram-statistics .dropdown-bar h1{
+    font-size: 15px;
+    transform: translate(-9% , 60%);
+  }
+
+  #diagram-statistics .dropdown-doughnut h1{
+    font-size: 15px;
+    transform: translate(-9% , 60%);
+  }
+
+  #diagram-statistics .dropdown-bar .month-bar{
+    transform: translate(165% , -45%);
+    font-size: 12px;
+  }
+  
+  #diagram-statistics .dropdown-bar .year-bar{
+    transform: translate(279% , -45%);
+    font-size: 12px;
+  }
+
+  #diagram-statistics .dropdown-doughnut .month-doughnut{
+    transform: translate(165% , -45%);
+    font-size: 12px;
+  }
+  
+  #diagram-statistics .dropdown-doughnut .year-doughnut{
+    transform: translate(280% , -45%);
+    font-size: 12px;
+  }
+
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(-100% , 109%);
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(100% , -110%);
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(-170% , 109%);
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(170% , -110%);
+  }
+
+  #diagram-statistics .bar-chart{
+    height: 90vh;
+  }
+
+  #diagram-statistics .doughnut-chart{
+    height: 155vh;
+  }
+
+}
+
+@media screen and (max-width: 1105px)  {
+  #diagram-statistics .dropdown-bar h1{
+    font-size: 15px;
+    transform: translate(-9% , 60%);
+  }
+
+  #diagram-statistics .dropdown-doughnut h1{
+    font-size: 15px;
+    transform: translate(-9% , 60%);
+  }
+
+  #diagram-statistics .dropdown-bar .month-bar{
+    transform: translate(180% , -44%);
+  }
+  
+  #diagram-statistics .dropdown-bar .year-bar{
+    transform: translate(295% , -44%);
+  }
+
+  #diagram-statistics .dropdown-doughnut .month-doughnut{
+    transform: translate(180% , -44%);
+  }
+  
+  #diagram-statistics .dropdown-doughnut .year-doughnut{
+    transform: translate(297% , -44%);
+  }
+
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(-100% , 109%);
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(100% , -110%);
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(-171% , 109%);
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(171% , -110%);
+  }
+
+  #diagram-statistics .bar-chart{
+    height: 80vh;
+  }
+
+  #diagram-statistics .doughnut-chart{
+    height: 135vh;
+  }
+
+  #diagram-statistics .line-chart{
+    height: 70vh;
+  }
+
+  #diagram-statistics {
+    height: 0vh;
+  }
+
+  #diagram-statistics #download-data-bar {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics #download-chart-bar {
+    font-size: 12px;
+  }
+
+  #diagram-statistics .buttons-doughnut1 #download-data-male {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics .buttons-doughnut1 #download-chart-male {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics #download-data-female {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics #download-chart-female {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics #download-data-line {
+    font-size: 12px;
+  }
+  
+  #diagram-statistics #download-chart-line {
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 896px)  {
+  #diagram-statistics h1 {
+    font-size: 40px;
+   }
+
+  #diagram-statistics .dropdown-bar h1{
+    font-size: 15px;
+    transform: translate(-11% , 60%);
+  }
+
+  #diagram-statistics .dropdown-doughnut h1{
+    font-size: 15px;
+    transform: translate(-11% , 60%);
+  }
+
+  #diagram-statistics .dropdown-bar .month-bar{
+    transform: translate(190% , -55%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-bar .year-bar{
+    transform: translate(305% , -55%);
+    font-size: 10px;
+  }
+
+  #diagram-statistics .dropdown-doughnut .month-doughnut{
+    transform: translate(190% , -54%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-doughnut .year-doughnut{
+    transform: translate(305% , -54%);
+    font-size: 10px;
+  }
+
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(-110% , 126%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(108% , -139%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(-171% , 126%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(180% , -139%);
+    font-size: 10px;
+  }
+
+  #diagram-statistics .bar-chart{
+    height: 70vh;
+  }
+
+  #diagram-statistics .doughnut-chart{
+    height: 120vh;
+  }
+
+  #diagram-statistics #download-data-bar {
+    font-size: 10px;
+    margin-left: 110px;
+  }
+  
+  #diagram-statistics #download-chart-bar {
+    font-size: 10px;
+    margin-right: 110px;
+  }
+
+  #diagram-statistics .buttons-doughnut1 #download-data-male {
+    font-size: 10px;
+    margin-left: 110px;
+  }
+  
+  #diagram-statistics .buttons-doughnut1 #download-chart-male {
+    font-size: 10px;
+    margin-right: 110px;
+  }
+  
+  #diagram-statistics #download-data-female {
+    font-size: 10px;
+    margin-left: 110px;
+  }
+  
+  #diagram-statistics #download-chart-female {
+    font-size: 10px;
+    margin-right: 110px;
+  }
+  
+  #diagram-statistics #download-data-line {
+    font-size: 10px;
+    margin-left: 110px;
+  }
+  
+  #diagram-statistics #download-chart-line {
+    font-size: 10px;
+    margin-right: 110px;
+  }
+
+}
+
+@media screen and (max-width: 760px)  {
+  #diagram-statistics h1 {
+    font-size: 35px;
+   }
+
+   #diagram-statistics .bar-chart{
     height: 55vh;
   }
 
-  #diagram-statistics #download-data {
-    right: 20%;
-    bottom: 15%;
-    padding: 15px 60px;
-    font-size: 20px;
+  #diagram-statistics .doughnut-chart{
+    height: 95vh;
   }
 
-  #diagram-statistics #download-chart {
-    left: 20%;
-    bottom: 15%;
-    padding: 15px 60px;
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 1060px) {
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 10px 0px 10px;
-  }
-}
-
-@media screen and (max-width: 990px) {
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 10px 0px 10px;
-  }
-
-  #diagram-statistics #download-data {
-    right: 20%;
-    font-size: 18px;
-    padding: 15px 50px;
-  }
-
-  #diagram-statistics #download-chart {
-    left: 20%;
-    font-size: 18px;
-    padding: 15px 50px;
-  }
-
-  #diagram-statistics .chart {
-    width: 70%;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  #diagram-statistics .chart {
-    width: 80%;
-  }
-
-  #diagram-statistics #download-data {
-    font-size: 15px;
-    padding: 10px 45px;
-  }
-
-  #diagram-statistics #download-data {
-    right: 10%;
-    font-size: 15px;
-    padding: 15px 50px;
-  }
-
-  #diagram-statistics #download-chart {
-    left: 10%;
-    font-size: 15px;
-    padding: 15px 50px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  #diagram-statistics .chart {
+  #diagram-statistics .line-chart{
     height: 50vh;
   }
 
-  #diagram-statistics .chart {
-    width: 90%;
+  #diagram-statistics .bar-chart .text-bar h1{
+    font-size: 18px;
   }
 
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 0px 0px 0px;
+  #diagram-statistics .doughnut-chart .text-doughnut h1{
+    font-size: 18px;
   }
 
-  #diagram-statistics .chart-menu #choose-statistic {
-    font-size: 12px;
+  #diagram-statistics .line-chart .text-line h1{
+    font-size: 18px;
   }
 
-  #diagram-statistics .chart-menu #choose-time {
-    font-size: 12px;
+  #diagram-statistics .dropdown-bar h1{
+    font-size: 15px;
+    transform: translate(0 , 0);
   }
 
-  #diagram-statistics .chart-menu #choose-chart-type {
-    font-size: 12px;
+  #diagram-statistics .dropdown-doughnut h1{
+    font-size: 15px;
+    transform: translate(0 , 0);
   }
+
+  #diagram-statistics .dropdown-bar .month-bar{
+    transform: translate(0 , 0);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #diagram-statistics .dropdown-bar .year-bar{
+    transform: translate(0 , 0);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #diagram-statistics .dropdown-doughnut .month-doughnut{
+    transform: translate(0 , 0);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #diagram-statistics .dropdown-doughnut .year-doughnut{
+    transform: translate(0 , 0);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(-110% , 125%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(108% , -140%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(-171% , 125%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(180% , -140%);
+    font-size: 10px;
+  }
+
+  #diagram-statistics #download-data-bar {
+    font-size: 10px;
+    margin-left: 60px;
+  }
+  
+  #diagram-statistics #download-chart-bar {
+    font-size: 10px;
+    margin-right: 60px;
+  }
+
+  #diagram-statistics .buttons-doughnut1 #download-data-male {
+    font-size: 10px;
+    margin-left: 60px;
+  }
+  
+  #diagram-statistics .buttons-doughnut1 #download-chart-male {
+    font-size: 10px;
+    margin-right: 60px;
+  }
+  
+  #diagram-statistics #download-data-female {
+    font-size: 10px;
+    margin-left: 60px;
+  }
+  
+  #diagram-statistics #download-chart-female {
+    font-size: 10px;
+    margin-right: 60px;
+  }
+  
+  #diagram-statistics #download-data-line {
+    font-size: 10px;
+    margin-left: 60px;
+  }
+  
+  #diagram-statistics #download-chart-line {
+    font-size: 10px;
+    margin-right: 60px;
+  }
+
 }
 
-@media screen and (max-width: 640px) {
-  #diagram-statistics .chart {
+@media screen and (max-width: 560px)  {
+  #diagram-statistics h1 {
+    font-size: 35px;
+   }
+
+  #diagram-statistics .bar-chart{
+    height: 55vh;
+  }
+
+  #diagram-statistics .doughnut-chart{
+    height: 90vh;
+  }
+
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(-110% , 125%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(108% , -140%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(-171% , 125%);
+    font-size: 10px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(180% , -140%);
+    font-size: 10px;
+  }
+
+  #diagram-statistics #download-data-bar {
+    margin-left: 40px;
+  }
+  
+  #diagram-statistics #download-chart-bar {
+    margin-right: 40px;
+  }
+
+  #diagram-statistics .buttons-doughnut1 #download-data-male {
+    margin-left: 40px;
+  }
+  
+  #diagram-statistics .buttons-doughnut1 #download-chart-male {
+    margin-right: 40px;
+  }
+  
+  #diagram-statistics #download-data-female {
+    margin-left: 40px;
+  }
+  
+  #diagram-statistics #download-chart-female {
+    margin-right: 40px;
+  }
+  
+  #diagram-statistics #download-data-line {
+    margin-left: 40px;
+  }
+  
+  #diagram-statistics #download-chart-line {
+    margin-right: 40px;
+  }
+
+}
+
+@media screen and (max-width: 460px)  {
+  #diagram-statistics h1 {
+    font-size:25px;
+   }
+
+   #diagram-statistics .bar-chart{
     height: 40vh;
   }
 
-  #diagram-statistics #download-data {
-    bottom: 25%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    border: 3px solid #fafafa;
-    font-size: 24px;
-    padding: 10px 45px;
-    border-radius: 40px;
-    transition-duration: 0.5s;
+  #diagram-statistics .doughnut-chart{
+    height: 70vh;
   }
 
-  #diagram-statistics #download-chart {
-    bottom: 15%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    border: 3px solid #fafafa;
-    font-size: 24px;
-    padding: 10px 45px;
-    border-radius: 40px;
-    transition-duration: 0.5s;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  #diagram-statistics #download-data {
-    font-size: 20px;
+  #diagram-statistics .line-chart{
+    height: 40vh;
   }
 
-  #diagram-statistics #download-chart {
-    font-size: 20px;
+  #diagram-statistics .dropdown-bar h1{
+    font-size: 10px;
   }
-}
 
-@media screen and (max-width: 400px) {
-  #diagram-statistics .chart-menu #choose-statistic {
+  #diagram-statistics .dropdown-doughnut h1{
+    font-size: 10px;
+  }
+
+  #diagram-statistics .dropdown-line h1{
+    font-size: 10px;
+  }
+
+  #diagram-statistics .bar-chart .text-bar h1{
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #diagram-statistics .doughnut-chart .text-doughnut h1{
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #diagram-statistics .line-chart .text-line h1{
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #diagram-statistics .dropdown-bar .month-bar{
+    transform: translate(0 , 0);
     font-size: 8px;
   }
 
-  #diagram-statistics .chart-menu #choose-time {
+  #diagram-statistics .dropdown-bar .year-bar{
+    transform: translate(0 , 0);
     font-size: 8px;
   }
 
-  #diagram-statistics .chart-menu #choose-chart-type {
+  #diagram-statistics .dropdown-doughnut .month-doughnut{
+    transform: translate(0 , 0);
     font-size: 8px;
   }
 
-  #diagram-statistics .chart-menu button:nth-child(2) {
-    margin: 0px 0px 0px 0px;
+  #diagram-statistics .dropdown-doughnut .year-doughnut{
+    transform: translate(0 , 0);
+    font-size: 8px;
   }
 
-  #diagram-statistics .chart {
-    width: 90%;
+  #diagram-statistics .dropdown-line .month-from{
+    transform: translate(0 , 20%);
+    font-size: 8px;
+  }
+  
+  #diagram-statistics .dropdown-line .month-to{
+    transform: translate(0 , -20%);
+    font-size: 8px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-from{
+    transform: translate(0 , 20%);
+    font-size: 8px;
+  }
+  
+  #diagram-statistics .dropdown-line .year-to{
+    transform: translate(0 , -20%);
+    font-size: 8px;
   }
 
-  #diagram-statistics #download-data {
-    font-size: 18px;
+  #diagram-statistics #download-data-bar {
+    transform: translate(0 , 0);
+    margin-left: 20px;
+    font-size: 7px;
+  }
+  
+  #diagram-statistics #download-chart-bar {
+    transform: translate(0 , 0);
+    margin-right: 20px;
+    font-size: 7px;
   }
 
-  #diagram-statistics #download-chart {
-    font-size: 18px;
+  #diagram-statistics .buttons-doughnut1 #download-data-male {
+    transform: translate(0 , 0);
+    margin-left: 20px;
+    font-size: 7px;
   }
+  
+  #diagram-statistics .buttons-doughnut1 #download-chart-male {
+    transform: translate(0 , 0);
+    margin-right: 20px;
+    font-size: 7px;
+  }
+  
+  #diagram-statistics #download-data-female {
+    transform: translate(0 , 0);
+    margin-left: 20px;
+    font-size: 7px;
+  }
+  
+  #diagram-statistics #download-chart-female {
+    transform: translate(0 , 0);
+    margin-right: 20px;
+    font-size: 7px;
+  }
+  
+  #diagram-statistics #download-data-line {
+    transform: translate(0 , 0);
+    margin-left: 20px;
+    font-size: 7px;
+  }
+  
+  #diagram-statistics #download-chart-line {
+    transform: translate(0 , 0);
+    margin-right: 20px;
+    font-size: 7px;
+  }
+
 }
+
+@media screen and (max-width: 460px)  {
+  #diagram-statistics h1 {
+    font-size:25px;
+   }
+
+   #diagram-statistics .bar-chart{
+    height: 30vh;
+  }
+
+  #diagram-statistics .doughnut-chart{
+    height: 50vh;
+  }
+
+  #diagram-statistics .line-chart{
+    height: 30vh;
+  }
+
+}
+
