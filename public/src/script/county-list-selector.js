@@ -336,7 +336,20 @@ const getApiSex = async () => {
 
 let maleChart;
 
+let csvMale;
+
 const maleDoughnut = (dataValue) => {
+    var csvValue = [];
+    for(var index in countiesList)
+        {
+            var value = [];
+            value.push(countiesList[index]);
+            value.push(dataValue[index]);
+            csvValue.push(value);
+        }    
+
+    csvMale = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
+
     var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
 
     var ctx = document.getElementById('maleChart').getContext('2d');
@@ -365,9 +378,34 @@ const maleDoughnut = (dataValue) => {
     return maleChart;
 }
 
+document.getElementById("download-data-male").addEventListener("click", function(){
+    downloadMaleCSV();
+  });
+
+function downloadMaleCSV(){
+    var encodedUri = encodeURI(csvMale);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_doughnut_male.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
+}
+
 let femaleChart;
 
+let csvFemale;
+
 const femaleDoughnut = (dataValue) => {
+    var csvValue = [];
+    for(var index in countiesList)
+        {
+            var value = [];
+            value.push(countiesList[index]);
+            value.push(dataValue[index]);
+            csvValue.push(value);
+        }    
+
+    csvFemale = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
     var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
 
     var ctx = document.getElementById('femaleChart').getContext('2d');
@@ -394,6 +432,19 @@ const femaleDoughnut = (dataValue) => {
     });
 
     return femaleChart;
+}
+
+document.getElementById("download-data-female").addEventListener("click", function(){
+    downloadFemaleCSV();
+  });
+
+function downloadFemaleCSV(){
+    var encodedUri = encodeURI(csvFemale);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_female.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
 }
 
 /*Get Api sex data from database*/
@@ -444,6 +495,8 @@ const getApiAll = async () => {
 
 let chartLine;
 
+let csvLine;
+
 const lineChart = (dataValue) => {
 
     var xValues = [];
@@ -479,6 +532,17 @@ const lineChart = (dataValue) => {
             }
             dataList.push(value);
         }    
+
+    var csvValue = [];
+    for(var index in countiesList)
+        {
+            var value = [];
+            value.push(countiesList[index]);
+            value.push(dataList[index]);
+            csvValue.push(value);
+        }    
+    
+    csvLine = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");    
 
     var ctx = document.getElementById('lineChart').getContext('2d');
 
@@ -566,6 +630,19 @@ const lineChart = (dataValue) => {
     }   
 
     return chartLine;
+}
+
+document.getElementById("download-data-line").addEventListener("click", function(){
+    downloadLineCSV();
+  });
+
+function downloadLineCSV(){
+    var encodedUri = encodeURI(csvLine);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_line.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
 }
 
 /*Download PDF buttons*/

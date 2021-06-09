@@ -16,6 +16,7 @@ if(mapSmall)
 {
     mapSmall.addEventListener('click', (e) => {
     let selectedCounty = e.target.parentNode.getAttribute('name');
+    window.open("/county-stats?id=" + (1 + idCountiesList.indexOf(selectedCounty)));
     })
 }
 
