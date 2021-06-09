@@ -105,8 +105,10 @@
             se structureaza toate valorile de care am avea nevoie, de la toate judetele. In chart-ul respectiv, se pun ca label valorile x, care se refera in exemplu la varste,
             iar in label va aparea si lista judetelor intre care s-ar executa comparatia. In options apar precizate detalii precum tipul de dispunere al legendei si
             datelor de pe coordonatele x si y.<br><br>
-            
-            Despre API: <a href="url">https://github.com/vladrotariu1/unemployment-rate-web-api</a><br>
+            </p>
+            <p>
+            Despre API:</p> <a href="url">https://github.com/vladrotariu1/unemployment-rate-web-api</a><br> 
+            <p>
             API-ul are rolul de a accesa baza de date si de a intoarce datele conform request-ului facut(functie subminata partii de model din MVC), pentru a putea fi 
             manipulate pentru display.<br><br>
             
