@@ -680,11 +680,11 @@ Responsive -> adaptation to devices
   position: absolute;
   background-color: #e0e0e0;
   width: 160px;
-  height: 64px;
 }
 
 #county-details .info-box h2 {
   color: #3366ff;
+  padding: 12px;
   margin: 0;
   font-weight: 400;
   font-size: 18px;

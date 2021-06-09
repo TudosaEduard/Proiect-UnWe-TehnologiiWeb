@@ -452,7 +452,6 @@
         </div>
         <div class="info-box">
             <h2 id="info-box-county-name">Oras</h2>
-            <h2 id="info-box-county-unemployed-number">Numar someri</h2>
         </div>
         <button>Alege județ</button>
     </section>
