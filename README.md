@@ -111,10 +111,9 @@
             <p>
             API-ul are rolul de a accesa baza de date si de a intoarce datele conform request-ului facut(functie subminata partii de model din MVC), pentru a putea fi 
             manipulate pentru display.<br><br>
-            
-            Despre Webscrapper: Webscrapperul implementat in python aduce datele din fisierele CSV de pe site-ul guvernului <a href="url">https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv&page=2</a> in baza de date pe care urmeaza sa o folosim.
-
             </p>
+            <p>
+            Despre Webscrapper: Webscrapperul implementat in python aduce datele din fisierele CSV de pe site-ul guvernului in baza de date pe care urmeaza sa o folosim. </p><a href="url">https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv&page=2</a> 
         </p>
     </section>
     <section id="interactiune" role="doc-interface">
