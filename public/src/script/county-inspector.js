@@ -6,7 +6,7 @@ if(mapBig)
 {
     mapBig.addEventListener('click', (e) => {
         let selectedCounty = e.target;
-        window.open("county-statistics.html");
+        window.open("/county-stats");
     })
 }
 
@@ -32,20 +32,16 @@ if(document.querySelector("#county-details"))
   })
 }
 
-const setInfoBoxInfo = (countyName, countyTotalUnemployedNumber) => {
+const setInfoBoxInfo = (countyName) => {
     let countyNameInfo = document.querySelector("#info-box-county-name");
-    let countyTotalUnemployedNumberInfo = document.querySelector("#info-box-county-unemployed-number");
-
     countyNameInfo.innerHTML = countyName;
-    countyTotalUnemployedNumberInfo.innerHTML = countyTotalUnemployedNumber;
 }
 
 document.querySelectorAll("#county-details .map-bg .map a").forEach(elem => {
     let infoBox = document.querySelector("#county-details .info-box");
     elem.addEventListener('mouseover', (e) => {
         let countyName = e.target.getAttribute("name");
-        let countyTotalUnemployedNumber = 1021;
-        setInfoBoxInfo(countyName, countyTotalUnemployedNumber);
+        setInfoBoxInfo(countyName);
         infoBox.style.visibility = "visible";
     })
     elem.addEventListener('mouseleave', (e) => {
