@@ -152,6 +152,8 @@
 
     <script src="src/script/animations.js"></script>
     <script src="src/script/chart-diagram.js"></script>
+    <script src="src/script/counties.js"></script>
+    <script src="src/script/parse-url-query-string.js"></script>
 
 </body>
 
