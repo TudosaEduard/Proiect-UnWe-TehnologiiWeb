@@ -1,23 +1,36 @@
 /* Get the county user clicked on */
+
 const mapBig = document.querySelector('.map-bg .map');
-mapBig.addEventListener('click', (e) => {
-    let selectedCounty = e.target;
-})
+
+if(mapBig)
+{
+    mapBig.addEventListener('click', (e) => {
+        let selectedCounty = e.target;
+        window.open("county-statistics.html");
+    })
+}
+
 
 const mapSmall = document.querySelector('#surface1');
-mapSmall.addEventListener('click', (e) => {
+if(mapSmall)
+{
+    mapSmall.addEventListener('click', (e) => {
     let selectedCounty = e.target.parentNode;
-})
+    })
+}
 
 /* Display info when hovering on a county*/
-document.querySelector("#county-details").addEventListener('mousemove', (e) => {
+if(document.querySelector("#county-details"))
+{
+  document.querySelector("#county-details").addEventListener('mousemove', (e) => {
     let infoBox = document.querySelector("#county-details .info-box");
     let pageHeight = document.querySelector("#county-details").offsetHeight;
     let pageWidth = document.querySelector("#county-details").offsetWidth;
 
     infoBox.style.top = (e.pageY - pageHeight - 30).toString() + "px";
     infoBox.style.left = (e.pageX - infoBox.offsetWidth / 2).toString() + "px";
-})
+  })
+}
 
 const setInfoBoxInfo = (countyName, countyTotalUnemployedNumber) => {
     let countyNameInfo = document.querySelector("#info-box-county-name");

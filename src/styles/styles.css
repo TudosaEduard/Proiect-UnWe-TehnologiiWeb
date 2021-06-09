@@ -2045,22 +2045,855 @@ Responsive -> adaptation to devices
 
 }
 
-@media screen and (max-width: 460px)  {
-  #diagram-statistics h1 {
-    font-size:25px;
-   }
+/*-------- county-statistics page --------*/
 
-   #diagram-statistics .bar-chart{
-    height: 30vh;
-  }
-
-  #diagram-statistics .doughnut-chart{
-    height: 50vh;
-  }
-
-  #diagram-statistics .line-chart{
-    height: 30vh;
-  }
-
+#county-statistics {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  text-align: center;
 }
 
+#county-statistics h1 {
+  position: relative;
+  color: #2c4964;
+  font-size: 50px;
+  font-weight: 600;
+  margin-top: 80px;
+}
+
+#county-statistics h1::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  bottom: -20px;
+  background-color: #0066ff;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#county-statistics .charts {
+  position: relative;
+  display: block;
+}
+
+/* Bar chart */
+
+#county-statistics .bar-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, -5%);
+}
+
+#county-statistics .bar-chart .text-bar h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .bar-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .bar-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar {
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-bar h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-5%, 50%);
+}
+
+#county-statistics .dropdown-bar .month-bar {
+  transform: translate(145%, -50%);
+  margin-left: 190px;
+}
+
+#county-statistics .dropdown-bar .year-bar {
+  transform: translate(145%, -50%);
+  margin-left: 60px;
+}
+/* Download buttons */
+
+#county-statistics #download-bar-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-bar-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-bar-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-bar-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Doughnut chart */
+
+#county-statistics .doughnut-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, 20%);
+}
+
+#county-statistics .doughnut-chart .text-doughnut h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .doughnut-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .doughnut-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-doughnut {
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-doughnut h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  transform: translate(-5%, 50%);
+}
+
+#county-statistics .dropdown-doughnut .month-doughnut {
+  margin-left: 190px;
+  transform: translate(145%, -50%);
+}
+
+#county-statistics .dropdown-doughnut .year-doughnut {
+  transform: translate(145%, -50%);
+  margin-left: 60px;
+}
+
+/* Download buttons */
+
+#county-statistics #download-doughnut-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-doughnut-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-doughnut-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-doughnut-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Line chart */
+
+#county-statistics .line-chart {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 80vh;
+  transform: translate(35%, 30%);
+}
+
+#county-statistics .line-chart .text-line h1 {
+  position: relative;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+  transform: translateY(50%);
+}
+
+#county-statistics .line-chart h1::before {
+  display: none;
+}
+
+#county-statistics .chart-canvas {
+  width: 100%;
+  height: 85%;
+  border: 2px solid #e2e2e2;
+  border-top: #ffffff;
+  border-bottom: #ffffff;
+  background-color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#county-statistics .dropdown-line {
+  position: relative;
+  margin-right: -12px;
+  padding-top: 10px;
+  border-left: 2px solid #e2e2e2;
+  border-right: 2px solid #e2e2e2;
+}
+
+#county-statistics .dropdown-line h1 {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  margin-left: -290px;
+  transform: translate(-5%, 50%);
+}
+
+#county-statistics .dropdown-line .month-line-from {
+  transform: translate(145%, -50%);
+  margin-left: 20px;
+}
+
+#county-statistics .dropdown-line .year-line-from {
+  transform: translate(145%, -50%);
+  margin-left: 55px;
+}
+
+#county-statistics .dropdown-line .month-line-to {
+  transform: translate(145%, -50%);
+  margin-left: -55px;
+}
+
+#county-statistics .dropdown-line .year-line-to {
+  transform: translate(145%, -50%);
+  padding-right: 40px;
+}
+
+#county-statistics .line-chart .buttons-bar {
+  position: relative;
+  margin-right: -12px;
+  border: 2px solid #e2e2e2;
+}
+
+/* Download buttons */
+
+#county-statistics #download-line-data {
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 120px;
+}
+
+#county-statistics #download-line-data:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#county-statistics #download-line-chart {
+  left: 20%;
+  background-color: transparent;
+  color: #2c4964;
+  border: 3px solid #ffffff;
+  font-size: 15px;
+  padding: 10px 60px;
+  transition-duration: 0.5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 120px;
+}
+
+#county-statistics #download-line-chart:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/*----- county-statistics responsive -----*/
+
+@media screen and (max-width: 1228px) {
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 90px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 90px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 90px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 90px;
+  }
+  #county-statistics #download-line-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 90px;
+  }
+  #county-statistics #download-line-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 7.5px 40px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 90px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+  }
+  #county-statistics #download-line-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  #county-statistics #download-line-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 789px) {
+  #county-statistics .doughnut-chart {
+    margin-top: 130px;
+  }
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 40px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 40px;
+  }
+  #county-statistics #download-line-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+  }
+  #county-statistics #download-line-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    padding: 5px 30px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (max-width: 674px) {
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 30px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 30px;
+  }
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 10px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 519px) {
+  #county-statistics .bar-chart .text-bar h1 {
+    font-size: 17.5px;
+  }
+  #county-statistics .doughnut-chart .text-bar h1 {
+    font-size: 17.5px;
+  }
+  #county-statistics .line-chart .text-bar h1 {
+    font-size: 17.5px;
+  }
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+  }
+  #county-statistics #download-line-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+  #county-statistics #download-line-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 3px 20px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 429px) {
+  #county-statistics .bar-chart .text-bar h1 {
+    font-size: 15px;
+  }
+  #county-statistics .doughnut-chart .text-bar h1 {
+    font-size: 15px;
+  }
+  #county-statistics .line-chart .text-bar h1 {
+    font-size: 15px;
+  }
+  #county-statistics #download-bar-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 12.5px;
+  }
+  #county-statistics #download-bar-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 12.5px;
+  }
+  #county-statistics #download-doughnut-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 12.5px;
+  }
+  #county-statistics #download-doughnut-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 12.5px;
+  }
+  #county-statistics #download-line-data {
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 12.5px;
+  }
+  #county-statistics #download-line-chart {
+    left: 20%;
+    background-color: transparent;
+    color: #2c4964;
+    border: 2px solid #ffffff;
+    font-size: 8px;
+    padding: 2px 15px;
+    transition-duration: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 12.5px;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  #county-statistics .dropdown-bar h1 {
+    font-size: 13.5px;
+    padding-left: 20px;
+  }
+  #county-statistics .dropdown-doughnut h1 {
+    font-size: 13.5px;
+  }
+  #county-statistics .dropdown-doughnut .month-doughnut {
+    margin-left: 150px;
+  }
+  #county-statistics .dropdown-line h1 {
+    padding-left: 10px;
+    font-size: 13.5px;
+  }
+  #county-statistics .dropdown-line .month-line-from {
+    margin-left: -10px;
+  }
+}
+
+@media screen and (max-width: 1008px) {
+  #county-statistics .dropdown-line h1 {
+    padding-left: 10px;
+    font-size: 11.5px;
+  }
+  #county-statistics .dropdown-line .month-line-from {
+    margin-left: -60px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  #county-statistics .dropdown-bar h1 {
+    font-size: 13.5px;
+    margin-left: -70px;
+  }
+
+  #county-statistics .dropdown-bar .month-bar {
+    margin-left: 80px;
+  }
+
+  #county-statistics .dropdown-doughnut h1 {
+    font-size: 12.5px;
+    margin-left: -60px;
+  }
+  #county-statistics .dropdown-doughnut .month-doughnut {
+    margin-left: 50px;
+  }
+}
