@@ -151,11 +151,14 @@ const getApiAge = async () => {
         var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
         id = id + 1;
 
+        var selectedMonth = document.getElementById('monthBar').value;
+        var selectedYear = document.getElementById('yearBar').value;
+
         url_api = url_api.concat(id.toString());
         url_api = url_api.concat("&month=");
-        url_api = url_api.concat("1");
+        url_api = url_api.concat(selectedMonth.toString());
         url_api = url_api.concat("&year=");
-        url_api = url_api.concat("2021");
+        url_api = url_api.concat(selectedYear.toString());
 
         const postPromise = await fetch(url_api);
         const response = await postPromise.json();
@@ -320,11 +323,14 @@ const getApiSex = async () => {
         var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
         id = id + 1;
 
+        var selectedMonth = document.getElementById('monthDoughnut').value;
+        var selectedYear = document.getElementById('yearDoughnut').value;
+
         url_api = url_api.concat(id.toString());
         url_api = url_api.concat("&month=");
-        url_api = url_api.concat("1");
+        url_api = url_api.concat(selectedMonth.toString());
         url_api = url_api.concat("&year=");
-        url_api = url_api.concat("2021");
+        url_api = url_api.concat(selectedYear.toString());
 
         const postPromise = await fetch(url_api);
         const response = await postPromise.json();
@@ -339,9 +345,6 @@ const getApiSex = async () => {
         maleListData.push(dataList[0]);
         femaleListData.push(dataList[1]);      
     }
-
-    console.log(maleListData);
-    console.log(femaleListData);
 
     maleDoughnut(maleListData);
     femaleDoughnut(femaleListData);
@@ -412,40 +415,176 @@ const femaleDoughnut = (dataValue) => {
     return femaleChart;
 }
 
+/*Get Api sex data from database*/
+
+const getApiAll = async () => {
+
+    const countiesTotal = [];
+
+    for (var countie in countiesList){
+
+        url_api = "https://unemployment-rate-web-api.herokuapp.com/history/?county-id=";
+
+        var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
+        id = id + 1;
+
+        var selectedMonthFrom = document.getElementById('monthFrom').value;
+        var selectedYearFrom = document.getElementById('yearFrom').value;
+        var selectedMonthTo = document.getElementById('monthTo').value;
+        var selectedYearTo = document.getElementById('yearTo').value;
+
+        url_api = url_api.concat(id.toString());
+        url_api = url_api.concat("&from-month=");
+        url_api = url_api.concat(selectedMonthFrom.toString());
+        url_api = url_api.concat("&from-year=");
+        url_api = url_api.concat(selectedYearFrom.toString());
+        url_api = url_api.concat("&to-month=");
+        url_api = url_api.concat(selectedMonthTo.toString());
+        url_api = url_api.concat("&to-year=");
+        url_api = url_api.concat(selectedYearTo.toString());
+
+        const postPromise = await fetch(url_api);
+        const response = await postPromise.json();
+
+        const dataList = [];
+
+        for (var key in response)
+            dataList.push(response[key]); 
+
+        countiesTotal.push(dataList);     
+    }
+
+   lineChart(countiesTotal);
+
+}
+
+
 /*Line chart*/
 
-const lineChart = () => {
-    var xValues = ["Ianuarie" , "Februarie" , "Martie" , "Aprilie" , "Mai", "Iunie" , "Iulie" , "August" , "Septembrie" , "Octombrie" , "Noiembrie" , "Decembrie"];
+let chartLine;
+
+const lineChart = (dataValue) => {
+
+    var xValues = [];
+
+    for(var key in dataValue[0])
+        {
+            var value;
+            for(var index in dataValue[0][key])
+            {
+                if(index.toString() == 'month')
+                    {
+                        value = dataValue[0][key][index].toString();
+                        value = value.concat("_");
+                    }
+                if(index.toString() == 'year')
+                        value = value.concat(dataValue[0][key][index].toString());    
+            }
+            xValues.push(value);
+        }
+
+    var dataList = [];
+
+    for(var arr in dataValue)
+        {
+            var value = [];
+            for(var key in dataValue[arr])
+            {
+                for(var index in dataValue[arr][key])
+                {
+                    if(index.toString() != 'month' && index.toString() != 'year')
+                        value.push(dataValue[arr][key][index]);  
+                }
+            }
+            dataList.push(value);
+        }    
+
     var ctx = document.getElementById('lineChart').getContext('2d');
 
-    new Chart(ctx, {
-        type: "line",
-        data: {  
-        labels: xValues,
-        datasets: [{
-            label: "Arad",
-            data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478 , 100 , 500],
-            borderColor: 'rgba(239,107,107,255)',
-            fill: false
-        },{
-            label: "Alba",
-            data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000 , 8000 , 55],
-            borderColor: 'rgba(159,103,184,255)',
-            fill: false
-        },{
-            label: "Suceava",
-            data: [300,700,2000,5000,6000,4000,2000,1000,200,100 , 200 , 500],
-            borderColor: 'rgba(117,193,222,255)',
-            fill: false
-        }]
-    },
-        options: {
-            tooltips:{
-                mode: 'index',
-            },
-            legend: {display: true},
-        }
-    });
+    if(chartLine)
+        chartLine.destroy();
+
+    if(countiesList.length == 1){
+
+        chartLine = new Chart(ctx, {
+            type: "line",
+            data: {  
+            labels: xValues,
+            datasets: [{
+                label: countiesList[0],
+                data: dataList[0],
+                borderColor: 'rgba(239,107,107,255)',
+                fill: false
+            }]
+        },
+            options: {
+                tooltips:{
+                    mode: 'index',
+                },
+                legend: {display: true},
+            }
+        });
+
+    } else if(countiesList.length == 2) {
+
+        chartLine = new Chart(ctx, {
+            type: "line",
+            data: {  
+            labels: xValues,
+            datasets: [{
+                label: countiesList[0],
+                data: dataList[0],
+                borderColor: 'rgba(239,107,107,255)',
+                fill: false
+            } , {
+                label: countiesList[1],
+                data: dataList[1],
+                borderColor: 'rgba(109,176,234,255)',
+                fill: false
+            }]
+        },
+            options: {
+                tooltips:{
+                    mode: 'index',
+                },
+                legend: {display: true},
+            }
+        });
+
+    } else {
+
+        chartLine = new Chart(ctx, {
+            type: "line",
+            data: {  
+            labels: xValues,
+            datasets: [{
+                label: countiesList[0],
+                data: dataList[0],
+                borderColor: 'rgba(239,107,107,255)',
+                fill: false
+            } , {
+                label: countiesList[1],
+                data: dataList[1],
+                borderColor: 'rgba(109,176,234,255)',
+                fill: false
+            } , {
+                label: countiesList[2],
+                data: dataList[2],
+                borderColor: 'rgba(140,208,202,255)',
+                fill: false
+            }]
+        },
+            options: {
+                tooltips:{
+                    mode: 'index',
+                },
+                legend: {display: true},
+            }
+        });
+
+    }   
+
+    return chartLine;
 }
 
 /*Download PDF buttons*/
@@ -518,6 +657,36 @@ function downloadPDF4() {
 	doc.save('new-lineChart.pdf');
  }
 
+ /*Charts display*/
+
+function barChartDisplay(){
+
+    document.getElementById('monthBar').addEventListener('change' , getApiAge);
+
+    document.getElementById('yearBar').addEventListener('change', getApiAge);
+
+}
+
+ function doughnutChartDisplay(){
+
+    document.getElementById('monthDoughnut').addEventListener('change' , getApiSex);
+
+    document.getElementById('yearDoughnut').addEventListener('change' , getApiSex);
+
+ }
+
+ function lineChartDisplay(){
+
+    document.getElementById('monthFrom').addEventListener('change' , getApiAll);
+
+    document.getElementById('yearFrom').addEventListener('change' , getApiAll);
+
+    document.getElementById('monthTo').addEventListener('change' , getApiAll);
+
+    document.getElementById('yearTo').addEventListener('change' , getApiAll);
+
+ }
+
  /* Display chart function */
 
 const goToChart = () => {
@@ -527,70 +696,14 @@ const goToChart = () => {
 
         getApiAge();
         getApiSex();
-        lineChart();
+        getApiAll();
+
+        barChartDisplay();
+        doughnutChartDisplay();
+        lineChartDisplay();
 
         setTimeout(function () {
             window.location.href='#diagram-statistics';
-        } , 800);
+        } , 2500);
     }
 }
-
-/*Download CSV buttons*/
-
-/*document.getElementById("download-data-bar").addEventListener("click", function(){
-    downloadCSV1({ filename: "chart-dataBar.csv", chart: barPlot()})
-  });
-  
-  function convertChartDataToCSV1(args) {  
-    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-  
-    data = args.data || null;
-    if (data == null || !data.length) {
-      return null;
-    }
-  
-    columnDelimiter = args.columnDelimiter || ',';
-    lineDelimiter = args.lineDelimiter || '\n';
-  
-    keys = Object.keys(data[0]);
-  
-    result = '';
-    result += keys.join(columnDelimiter);
-    result += lineDelimiter;
-  
-    data.forEach(function(item) {
-      ctr = 0;
-      keys.forEach(function(key) {
-        if (ctr > 0) result += columnDelimiter;
-        result += item[key];
-        ctr++;
-      });
-      result += lineDelimiter;
-    });
-    return result;
-  }
-  
-  function downloadCSV1(args) {
-    var data, filename, link;
-    var csv = "";
-    for(var i = 0; i < args.chart.options.data.length; i++){
-      csv += convertChartDataToCSV1({
-        data: args.chart.options.data[i].dataPoints
-      });
-    }
-    if (csv == null) return;
-  
-    filename = args.filename || 'chart-dataBar.csv';
-  
-    if (!csv.match(/^data:text\/csv/i)) {
-      csv = 'data:text/csv;charset=utf-8,' + csv;
-    }
-    
-    data = encodeURI(csv);
-    link = document.createElement('a');
-    link.setAttribute('href', data);
-    link.setAttribute('download', filename);
-    document.body.appendChild(link); // Required for FF
-      link.click(); 
-      document.body.removeChild(link);   
-  }*/
