@@ -181,11 +181,24 @@ const getApiAge = async () => {
 
 let barChart;
 
+let csvBar;
+
 const barPlot = (dataValue) => {
 
     var xValues = ["under_25 age", "25_to_29 age", "30_to_39 age", "40_to_49 age", "50_to_55 age", "greater_55 age"];
 
     var ctx = document.getElementById('barChart').getContext('2d');
+
+    var csvValue = [];
+    for(var index in countiesList)
+        {
+            var value = [];
+            value.push(countiesList[index]);
+            value.push(dataValue[index]);
+            csvValue.push(value);
+        }    
+
+    csvBar = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
 
     if(countiesList.length == 1) {
         
@@ -307,6 +320,19 @@ const barPlot = (dataValue) => {
     }
     return barChart;
 
+}
+
+document.getElementById("download-data-bar").addEventListener("click", function(){
+    downloadBarCSV();
+  });
+
+function downloadBarCSV(){
+    var encodedUri = encodeURI(csvBar);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_bar.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
 }
 
 /*Get Api sex data from database*/
