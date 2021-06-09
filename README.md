@@ -113,7 +113,7 @@
             manipulate pentru display.<br><br>
             </p>
             <p>
-            Despre Webscrapper: Webscrapperul implementat in python aduce datele din fisierele CSV de pe site-ul guvernului in baza de date pe care urmeaza sa o folosim. </p><a href="url">https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv&page=2</a> 
+            Despre Webscrapper: <br>Webscrapperul implementat in python aduce datele din fisierele CSV de pe site-ul guvernului in baza de date pe care urmeaza sa o folosim. </p><a href="url">https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv&page=2</a> 
         </p>
     </section>
     <section id="interactiune" role="doc-interface">
