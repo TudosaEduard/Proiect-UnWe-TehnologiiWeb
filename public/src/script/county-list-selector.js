@@ -1,51 +1,6 @@
-/* Add and remove items for diagram */
+/* Add and remove items for diagram */  
 
-countiesList = [];     
-
-idCountiesList = [
-    "ALBA",
-    "ARAD",
-    "ARGEȘ",
-    "BACĂU",
-    "BIHOR",
-    "BISTRIȚA-NĂSĂUD",
-    "BOTOȘANI",
-    "BRĂILA",
-    "BRAȘOV",
-    "BUZĂU",
-    "CĂLĂRAȘI",
-    "CARAȘ-SEVERIN",
-    "CLUJ",
-    "CONSTANȚA",
-    "COVASNA",
-    "DÂMBOVIȚA",
-    "DOLJ",
-    "GALAȚI",
-    "GIURGIU",
-    "GORJ",
-    "HARGHITA",
-    "HUNEDOARA",
-    "IALOMIȚA",
-    "IAȘI",
-    "ILFOV",
-    "MARAMUREȘ",
-    "MEHEDINȚI",
-    "BUCUREȘTI",
-    "MUREȘ",
-    "NEAMȚ",
-    "OLT",
-    "PRAHOVA",
-    "SĂLAJ",
-    "SATU-MARE",
-    "SIBIU",
-    "SUCEAVA",
-    "TELEORMAN",
-    "TIMIȘ",
-    "TULCEA",
-    "VÂLCEA",
-    "VASLUI",
-     "VRANCEA"
-    ]
+countiesList = [];
 
 function addItem() {
     var ul = document.getElementById("dynamic-list");

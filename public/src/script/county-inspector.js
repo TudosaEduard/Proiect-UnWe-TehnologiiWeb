@@ -5,8 +5,8 @@ const mapBig = document.querySelector('.map-bg .map');
 if(mapBig)
 {
     mapBig.addEventListener('click', (e) => {
-        let selectedCounty = e.target;
-        window.open("/county-stats");
+        let selectedCounty = e.target.getAttribute('name');
+        window.open("/county-stats?id=" + (1 + idCountiesList.indexOf(selectedCounty)));
     })
 }
 
@@ -15,7 +15,7 @@ const mapSmall = document.querySelector('#surface1');
 if(mapSmall)
 {
     mapSmall.addEventListener('click', (e) => {
-    let selectedCounty = e.target.parentNode;
+    let selectedCounty = e.target.parentNode.getAttribute('name');
     })
 }
 
