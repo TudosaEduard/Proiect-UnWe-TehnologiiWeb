@@ -1,6 +1,8 @@
-/* Add and remove items for diagram */  
+ /*--------------------------------------------------------------
+# Add and remove items for diagram
+--------------------------------------------------------------*/
 
-countiesList = [];
+countiesList = []; // list with county selected
 
 function addItem() {
     var ul = document.getElementById("dynamic-list");
@@ -13,6 +15,8 @@ function addItem() {
         
             if(countiesList.includes(candidate.value) == false){
             
+                //dinamic add and remove county
+
                 li.setAttribute('id', candidate.value);
                 li.appendChild(document.createTextNode(candidate.value));
                 li.style.animation = 'from-left 0.5s forwards ease-out';
@@ -32,6 +36,8 @@ function addItem() {
                 
                 countiesList.push(candidate.value);
 
+                //add event listener for remove county
+
                 button.addEventListener("click" , () => {
                     countiesList.splice(countiesList.indexOf(button.getAttribute("id")) , 1);
                     li.removeChild(button);
@@ -43,7 +49,11 @@ function addItem() {
     }
 }
 
-/* Autocomplete */
+
+/*--------------------------------------------------------------
+# Autocomplete
+--------------------------------------------------------------*/
+
 
 const searchWrapper = document.querySelector(".input-group");
 const inputBox = searchWrapper.querySelector("input");
@@ -53,6 +63,8 @@ inputBox.onkeyup = (e)=>{
     let userData = e.target.value; 
     let emptyArray = [];
     if(userData){
+
+        //make box for autocomplete
         
         emptyArray = countyContainer.filter((data)=>{
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
@@ -75,12 +87,18 @@ inputBox.onkeyup = (e)=>{
 }
 
 function select(elem){
+
+    //select county and remove it from county list
+
     let selectUserData = elem.textContent;
     inputBox.value = selectUserData;
     searchWrapper.classList.remove("active");
 }
 
 function showSuggestion(list){
+
+    //show available counties
+
     let listData;
     if(!list.length){
         userValue = inputBox.value;
@@ -91,9 +109,13 @@ function showSuggestion(list){
     suggBox.innerHTML = listData;
 }
 
-/*Charts diagrams*/
 
-/*Get Api age data from database*/
+ /*--------------------------------------------------------------
+# Get api data from database
+--------------------------------------------------------------*/
+
+
+/*Get Api age*/
 
 const getApiAge = async () => {
 
@@ -101,6 +123,7 @@ const getApiAge = async () => {
 
     for (var countie in countiesList){
 
+        //prepare url fro fetch request
         url_api = "https://unemployment-rate-web-api.herokuapp.com/history/age/?county-id=";
 
         var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
@@ -115,6 +138,7 @@ const getApiAge = async () => {
         url_api = url_api.concat("&year=");
         url_api = url_api.concat(selectedYear.toString());
 
+        //extract objects from database and forced awaiting
         const postPromise = await fetch(url_api);
         const response = await postPromise.json();
 
@@ -128,9 +152,107 @@ const getApiAge = async () => {
         countiesListData.push(dataList);      
     }
 
+    //return update chart with data objects
     barPlot(countiesListData);
 
 }
+
+/*Get Api sex*/
+
+const getApiSex = async () => {
+
+    const maleListData = [];
+    const femaleListData = [];
+
+    for (var countie in countiesList){
+
+        //prepare url fro fetch request
+        url_api = "https://unemployment-rate-web-api.herokuapp.com/history/sex/?county-id=";
+
+        var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
+        id = id + 1;
+
+        var selectedMonth = document.getElementById('monthDoughnut').value;
+        var selectedYear = document.getElementById('yearDoughnut').value;
+
+        url_api = url_api.concat(id.toString());
+        url_api = url_api.concat("&month=");
+        url_api = url_api.concat(selectedMonth.toString());
+        url_api = url_api.concat("&year=");
+        url_api = url_api.concat(selectedYear.toString());
+
+        //extract objects from database and forced awaiting
+        const postPromise = await fetch(url_api);
+        const response = await postPromise.json();
+
+        const dataList = [];
+
+        for (var key in response)
+                if(key.toString() != 'month' && key.toString() != 'year'){
+                    dataList.push(response[key]);
+                }   
+
+        maleListData.push(dataList[0]);
+        femaleListData.push(dataList[1]);      
+    }
+
+    //return update chart with data objects
+    maleDoughnut(maleListData);
+    femaleDoughnut(femaleListData);
+
+}
+
+/*Get Api all*/
+
+const getApiAll = async () => {
+
+    const countiesTotal = [];
+
+    for (var countie in countiesList){
+
+        //prepare url fro fetch request
+        url_api = "https://unemployment-rate-web-api.herokuapp.com/history/?county-id=";
+
+        var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
+        id = id + 1;
+
+        var selectedMonthFrom = document.getElementById('monthFrom').value;
+        var selectedYearFrom = document.getElementById('yearFrom').value;
+        var selectedMonthTo = document.getElementById('monthTo').value;
+        var selectedYearTo = document.getElementById('yearTo').value;
+
+        url_api = url_api.concat(id.toString());
+        url_api = url_api.concat("&from-month=");
+        url_api = url_api.concat(selectedMonthFrom.toString());
+        url_api = url_api.concat("&from-year=");
+        url_api = url_api.concat(selectedYearFrom.toString());
+        url_api = url_api.concat("&to-month=");
+        url_api = url_api.concat(selectedMonthTo.toString());
+        url_api = url_api.concat("&to-year=");
+        url_api = url_api.concat(selectedYearTo.toString());
+
+        //extract objects from database and forced awaiting
+        const postPromise = await fetch(url_api);
+        const response = await postPromise.json();
+
+        const dataList = [];
+
+        for (var key in response)
+            dataList.push(response[key]); 
+
+        countiesTotal.push(dataList);     
+    }
+
+   //return update chart with data objects
+   lineChart(countiesTotal);
+
+}
+
+
+ /*--------------------------------------------------------------
+# Chart diagrams
+--------------------------------------------------------------*/
+
 
 /*BarPlot chart*/
 
@@ -144,6 +266,7 @@ const barPlot = (dataValue) => {
 
     var ctx = document.getElementById('barChart').getContext('2d');
 
+    //prepare csv value for download button
     var csvValue = [];
     for(var index in countiesList)
         {
@@ -155,6 +278,7 @@ const barPlot = (dataValue) => {
 
     csvBar = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
 
+    //check number of county and make diagram
     if(countiesList.length == 1) {
         
         if(barChart)
@@ -277,60 +401,6 @@ const barPlot = (dataValue) => {
 
 }
 
-document.getElementById("download-data-bar").addEventListener("click", function(){
-    downloadBarCSV();
-  });
-
-function downloadBarCSV(){
-    var encodedUri = encodeURI(csvBar);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data_bar.csv");
-    document.body.appendChild(link); // Required for FF
-    link.click();   
-}
-
-/*Get Api sex data from database*/
-
-const getApiSex = async () => {
-
-    const maleListData = [];
-    const femaleListData = [];
-
-    for (var countie in countiesList){
-
-        url_api = "https://unemployment-rate-web-api.herokuapp.com/history/sex/?county-id=";
-
-        var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
-        id = id + 1;
-
-        var selectedMonth = document.getElementById('monthDoughnut').value;
-        var selectedYear = document.getElementById('yearDoughnut').value;
-
-        url_api = url_api.concat(id.toString());
-        url_api = url_api.concat("&month=");
-        url_api = url_api.concat(selectedMonth.toString());
-        url_api = url_api.concat("&year=");
-        url_api = url_api.concat(selectedYear.toString());
-
-        const postPromise = await fetch(url_api);
-        const response = await postPromise.json();
-
-        const dataList = [];
-
-        for (var key in response)
-                if(key.toString() != 'month' && key.toString() != 'year'){
-                    dataList.push(response[key]);
-                }   
-
-        maleListData.push(dataList[0]);
-        femaleListData.push(dataList[1]);      
-    }
-
-    maleDoughnut(maleListData);
-    femaleDoughnut(femaleListData);
-
-}
 
 /*Doughnut charts*/
 
@@ -339,6 +409,12 @@ let maleChart;
 let csvMale;
 
 const maleDoughnut = (dataValue) => {
+
+    var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
+
+    var ctx = document.getElementById('maleChart').getContext('2d');
+
+    //prepare csv value for download button
     var csvValue = [];
     for(var index in countiesList)
         {
@@ -350,10 +426,7 @@ const maleDoughnut = (dataValue) => {
 
     csvMale = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
 
-    var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
-
-    var ctx = document.getElementById('maleChart').getContext('2d');
-
+    //make diagram
     if(maleChart)
         maleChart.destroy();
 
@@ -378,24 +451,17 @@ const maleDoughnut = (dataValue) => {
     return maleChart;
 }
 
-document.getElementById("download-data-male").addEventListener("click", function(){
-    downloadMaleCSV();
-  });
-
-function downloadMaleCSV(){
-    var encodedUri = encodeURI(csvMale);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data_doughnut_male.csv");
-    document.body.appendChild(link); // Required for FF
-    link.click();   
-}
-
 let femaleChart;
 
 let csvFemale;
 
-const femaleDoughnut = (dataValue) => {
+const femaleDoughnut = (dataValue) => {    
+    
+    var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
+
+    var ctx = document.getElementById('femaleChart').getContext('2d');
+
+    //prepare csv value for download button
     var csvValue = [];
     for(var index in countiesList)
         {
@@ -403,13 +469,11 @@ const femaleDoughnut = (dataValue) => {
             value.push(countiesList[index]);
             value.push(dataValue[index]);
             csvValue.push(value);
-        }    
+        }
 
     csvFemale = "data:text/csv;charset=utf-8," + csvValue.map(e => e.join(",")).join("\n");
-    var barColors = ['rgba(254,218,109,255)','rgba(178,215,255,255)','rgba(250,178,213,255)'];
 
-    var ctx = document.getElementById('femaleChart').getContext('2d');
-
+    //make diagram
     if(femaleChart)
         femaleChart.destroy();
 
@@ -434,63 +498,6 @@ const femaleDoughnut = (dataValue) => {
     return femaleChart;
 }
 
-document.getElementById("download-data-female").addEventListener("click", function(){
-    downloadFemaleCSV();
-  });
-
-function downloadFemaleCSV(){
-    var encodedUri = encodeURI(csvFemale);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data_female.csv");
-    document.body.appendChild(link); // Required for FF
-    link.click();   
-}
-
-/*Get Api sex data from database*/
-
-const getApiAll = async () => {
-
-    const countiesTotal = [];
-
-    for (var countie in countiesList){
-
-        url_api = "https://unemployment-rate-web-api.herokuapp.com/history/?county-id=";
-
-        var id = idCountiesList.indexOf(countiesList[countie].toUpperCase());
-        id = id + 1;
-
-        var selectedMonthFrom = document.getElementById('monthFrom').value;
-        var selectedYearFrom = document.getElementById('yearFrom').value;
-        var selectedMonthTo = document.getElementById('monthTo').value;
-        var selectedYearTo = document.getElementById('yearTo').value;
-
-        url_api = url_api.concat(id.toString());
-        url_api = url_api.concat("&from-month=");
-        url_api = url_api.concat(selectedMonthFrom.toString());
-        url_api = url_api.concat("&from-year=");
-        url_api = url_api.concat(selectedYearFrom.toString());
-        url_api = url_api.concat("&to-month=");
-        url_api = url_api.concat(selectedMonthTo.toString());
-        url_api = url_api.concat("&to-year=");
-        url_api = url_api.concat(selectedYearTo.toString());
-
-        const postPromise = await fetch(url_api);
-        const response = await postPromise.json();
-
-        const dataList = [];
-
-        for (var key in response)
-            dataList.push(response[key]); 
-
-        countiesTotal.push(dataList);     
-    }
-
-   lineChart(countiesTotal);
-
-}
-
-
 /*Line chart*/
 
 let chartLine;
@@ -499,6 +506,7 @@ let csvLine;
 
 const lineChart = (dataValue) => {
 
+    //prepare data for diagram and csv download button
     var xValues = [];
 
     for(var key in dataValue[0])
@@ -546,6 +554,7 @@ const lineChart = (dataValue) => {
 
     var ctx = document.getElementById('lineChart').getContext('2d');
 
+    //check number of county and make diagram
     if(chartLine)
         chartLine.destroy();
 
@@ -632,90 +641,12 @@ const lineChart = (dataValue) => {
     return chartLine;
 }
 
-document.getElementById("download-data-line").addEventListener("click", function(){
-    downloadLineCSV();
-  });
 
-function downloadLineCSV(){
-    var encodedUri = encodeURI(csvLine);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data_line.csv");
-    document.body.appendChild(link); // Required for FF
-    link.click();   
-}
+/*--------------------------------------------------------------
+# Chart display
+--------------------------------------------------------------*/
 
-/*Download PDF buttons*/
-
-document.getElementById('download-chart-bar').addEventListener("click" , downloadPDF1);
-
-function downloadPDF1() {
-	var newCanvas = document.querySelector('#barChart');
-
-    //create image from dummy canvas
-	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
-  
-  	//creates PDF from img
-	var doc = new jsPDF('landscape');
-	doc.setFontSize(20);
-    doc.setFillColor('#FFFFFF');
-	doc.text(15, 15, "Super Cool Chart");
-	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
-	doc.save('new-barChart.pdf');
- }
-
- document.getElementById('download-chart-male').addEventListener("click" , downloadPDF2);
-
-function downloadPDF2() {
-	var newCanvas = document.querySelector('#maleChart');
-
-    //create image from dummy canvas
-	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
-  
-  	//creates PDF from img
-	var doc = new jsPDF('landscape');
-	doc.setFontSize(20);
-    doc.setFillColor('#FFFFFF');
-	doc.text(15, 15, "Super Cool Chart");
-	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
-	doc.save('new-doughnutMaleChart.pdf');
- }
-
- document.getElementById('download-chart-female').addEventListener("click" , downloadPDF3);
-
-function downloadPDF3() {
-	var newCanvas = document.querySelector('#femaleChart');
-
-    //create image from dummy canvas
-	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
-  
-  	//creates PDF from img
-	var doc = new jsPDF('landscape');
-	doc.setFontSize(20);
-    doc.setFillColor('#FFFFFF');
-	doc.text(15, 15, "Super Cool Chart");
-	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
-	doc.save('new-doughnutFemaleChart.pdf');
- }
-
- document.getElementById('download-chart-line').addEventListener("click" , downloadPDF4);
-
-function downloadPDF4() {
-	var newCanvas = document.querySelector('#lineChart');
-
-    //create image from dummy canvas
-	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
-  
-  	//creates PDF from img
-	var doc = new jsPDF('landscape');
-	doc.setFontSize(20);
-    doc.setFillColor('#FFFFFF');
-	doc.text(15, 15, "Super Cool Chart");
-	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
-	doc.save('new-lineChart.pdf');
- }
-
- /*Charts display*/
+///When we need to change month or year for update charts
 
 function barChartDisplay(){
 
@@ -745,23 +676,180 @@ function barChartDisplay(){
 
  }
 
- /* Display chart function */
+/*--------------------------------------------------------------
+# Display last page with chart
+--------------------------------------------------------------*/
 
 const goToChart = () => {
     let chartSection = document.getElementById("diagram-statistics");
     if(countiesList.length > 0){
         chartSection.style.display = "block";
 
+        //display charts
         getApiAge();
         getApiSex();
         getApiAll();
 
+        //update chart
         barChartDisplay();
         doughnutChartDisplay();
         lineChartDisplay();
 
+        //wait for data objects and update chart
         setTimeout(function () {
             window.location.href='#diagram-statistics';
         } , 2500);
     }
 }
+
+
+/*--------------------------------------------------------------
+# Download buttons
+--------------------------------------------------------------*/
+
+
+/*Download CSV*/
+
+//Download CSV Bar chart
+
+document.getElementById("download-data-bar").addEventListener("click", function(){
+    downloadBarCSV();
+  });
+
+function downloadBarCSV(){
+    var encodedUri = encodeURI(csvBar);//For download event
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_bar.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
+}
+
+document.getElementById("download-data-male").addEventListener("click", function(){
+    downloadMaleCSV();
+  });
+
+
+//Download CSV Doughnut charts  
+
+function downloadMaleCSV(){
+    var encodedUri = encodeURI(csvMale);//For download event
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_doughnut_male.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
+}
+
+document.getElementById("download-data-female").addEventListener("click", function(){
+    downloadFemaleCSV();
+  });
+
+
+function downloadFemaleCSV(){
+    var encodedUri = encodeURI(csvFemale);//For download event
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_female.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
+}
+
+  
+//Download CSV Line chart  
+
+document.getElementById("download-data-line").addEventListener("click", function(){
+    downloadLineCSV();
+  });
+
+function downloadLineCSV(){
+
+    var encodedUri = encodeURI(csvLine);//For download event
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data_line.csv");
+    document.body.appendChild(link); // Required for FF
+    link.click();   
+}
+
+
+
+/*Download PDF*/
+
+
+//Download PDF Bar chart
+
+document.getElementById('download-chart-bar').addEventListener("click" , downloadPDFBar);
+
+function downloadPDFBar() {
+	var newCanvas = document.querySelector('#barChart');
+
+    //create image from dummy canvas
+	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
+  
+  	//creates PDF from img
+	var doc = new jsPDF('landscape');
+	doc.setFontSize(20);
+    doc.setFillColor('#FFFFFF');
+	doc.text(15, 15, "Super Cool Chart");
+	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+	doc.save('new-barChart.pdf');
+ }
+
+ 
+//Download PDF Doughnut charts
+
+ document.getElementById('download-chart-male').addEventListener("click" , downloadPDFMale);
+
+function downloadPDFMale() {
+	var newCanvas = document.querySelector('#maleChart');
+
+    //create image from dummy canvas
+	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
+  
+  	//creates PDF from img
+	var doc = new jsPDF('landscape');
+	doc.setFontSize(20);
+    doc.setFillColor('#FFFFFF');
+	doc.text(15, 15, "Super Cool Chart");
+	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+	doc.save('new-doughnutMaleChart.pdf');
+ }
+
+ document.getElementById('download-chart-female').addEventListener("click" , downloadPDFFemale);
+
+
+function downloadPDFFemale() {
+	var newCanvas = document.querySelector('#femaleChart');
+
+    //create image from dummy canvas
+	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
+  
+  	//creates PDF from img
+	var doc = new jsPDF('landscape');
+	doc.setFontSize(20);
+    doc.setFillColor('#FFFFFF');
+	doc.text(15, 15, "Super Cool Chart");
+	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+	doc.save('new-doughnutFemaleChart.pdf');
+ }
+
+ 
+//Download PDF Line chart
+
+ document.getElementById('download-chart-line').addEventListener("click" , downloadPDFLine);
+
+function downloadPDFLine() {
+	var newCanvas = document.querySelector('#lineChart');
+
+    //create image from dummy canvas
+	var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
+  
+  	//creates PDF from img
+	var doc = new jsPDF('landscape');
+	doc.setFontSize(20);
+    doc.setFillColor('#FFFFFF');
+	doc.text(15, 15, "Super Cool Chart");
+	doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+	doc.save('new-lineChart.pdf');
+ }
