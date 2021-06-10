@@ -18,7 +18,7 @@
 <body>
 
     <section id="county-statistics">
-        <h1 class="anim" data-animtype="from-top" data-animdelay="0s">Vezi aici statistici de comparare</h1>
+        <h1 class="anim" data-animtype="from-top" data-animdelay="0s">Detalii despre șomaj al judetului </h1>
         <div class="charts">
             <div class="bar-chart">
                 <div class="text-bar">
