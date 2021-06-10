@@ -153,6 +153,19 @@
             <br>
         </p>
     </section>
+    <section id="tasks" role="doc-tasks">
+        <h2>
+            <span>7.</span> Task-uri executate
+        </h2>
+        <p>
+            Vlad: fabricarea Webscrapper si API, structurarea Routing-ului, alegerea design-ului si animatii
+            <br><br>
+            Edi: navbar, pagina de selectie a judetelor ce vor fi comparate(autocomplete), chart-urile comparatiilor  
+            <br><br>
+            Albert: pagina de statistica a unui judet(update-free), cu redirectionare de la mapa interactiva, documentatie
+            <br><br>
+        </p>
+    </section>
     </article>
 </body>
 </html>
